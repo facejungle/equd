@@ -1,0 +1,24 @@
+{
+    "name": "equd/theme",
+    "description": "theme",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "EQUD\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "facejungle",
+            "email": "110752838+facejungle@users.noreply.github.com"
+        }
+    ],
+    "optimize-autoloader": true,
+    "apcu-autoloader": true,
+    "minimum-stability": "dev",
+    "config": {
+        "process-timeout": 1800,
+        "vendor-dir": ""
+    }
+}
