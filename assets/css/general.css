@@ -1,29 +1,183 @@
-.category-header{
-    margin: var(--padding50);
+html{
+	background-color: var(--color0Gray);
+   }
+body{
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
 }
-.category-header__inner{
-    background-color: var(--colorWhite);
-    border-radius: 10px;
+/*
+HEADER * HEADER * HEADER
+*/
+header.site-header{
+	padding-bottom: var(--padding25);
 }
-.category-content{
-    background-color: var(--colorWhite);
+header.site-header>.site-header__line{
+	padding: 0 var(--padding25);
+	gap: var(--padding25);
+
+	align-items: center;
 }
-.category-header__block{
-    flex: 1 1 auto;
-    padding: var(--padding50);
+header.site-header>.site-header__line:nth-of-type(1){
+	background-color: var(--colorWhite);
+	box-shadow: var(--shadowBlock);
+	height: 75px;
 }
-.category-content__sidebar{
-    min-width: 250px;
-    max-width: 250px;
-    padding: var(--padding50);
-    border-right: var(--border);
+header.site-header>.site-header__line:nth-of-type(2){
+	background-color: var(--colorGreen);
+	border-radius: 0 0 10px 10px;
+	box-shadow: var(--shadowBlock);
+	border-top: var(--border);
+	margin: 0 var(--padding25);
+	padding: 0;
 }
-.category-content__main{
-    flex-wrap: wrap;
-    padding: var(--padding50);
-    gap: var(--padding25);
-    align-self: center;
+.site-header__line>.header-search{
+	flex: 1 1 auto;
 }
-.category-content__main>article{
-    flex: 1 0 350px;
+.site-header__line * ul#top-menu{
+	display: flex;
+	justify-content: flex-start;
+}
+/* header menu */
+ul#top-menu>li>a{
+	padding: var(--padding25) var(--padding25);
+	z-index: 3;
+}
+ul#top-menu>li>a:hover,
+ul#top-menu>li:hover{
+	background-color: var(--color0Gray);
+}
+ul#top-menu>li:hover>ul{
+	position: absolute;
+	display: block;
+	background-color: var(--colorWhite);
+	z-index: 99;
+}
+ul#top-menu>li>ul>li>a{
+	padding: 5px var(--padding25);
+	z-index: 3;
+}
+/* entry-header */
+header.entry-header{
+	border-radius: 10px;
+	margin-bottom: var(--padding25);
+}
+header.entry-header>.entry-header__block{
+	flex: 1 1 50%;
+	border-radius: 10px;
+	background-color: var(--colorWhite);
+	box-shadow: var(--shadowBlock);
+}
+header.entry-header>.entry-header__block:nth-of-type(1){
+	position: relative;
+	max-height: 360px;
+	max-width: 720px;
+}
+header.entry-header>.entry-header__block:nth-of-type(2){
+	margin-left: var(--padding25);
+	padding: var(--padding25);
+	align-self: flex-end;
+}
+.entry-header__block>img{
+	position: relative;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+.entry-header__block>h1.entry-title{
+	position: relative;
+	z-index: 3;
+}
+/*
+MAIN * MAIN * MAIN
+*/
+main.site-main{
+	flex: 1 1 auto;
+}
+/* entry main, article */
+main.entry-main{
+	background-color: var(--colorWhite);
+}
+article,
+article.leassons{
+	max-width: 720px;
+	margin: auto;
+}
+
+/*
+FOOTER * FOOTER * FOOTER
+*/
+ul#footer-horizontal.menu{
+	display: flex;
+	gap: var(--padding25);
+	justify-content: center;
+}
+.site-footer__line{
+	padding: var(--padding25);
+	gap: var(--padding25);
+}
+.site-footer__line:nth-of-type(2){
+	justify-content: space-between;
+}
+@media only screen and (max-width: 480px){
+	aside.sidebar{
+		display: none;
+	}
+	}
+aside.sidebar{
+	border-right: var(--border);
+	padding: var(--padding25);
+	width: 20%;
+}
+/*
+
+
+
+.wrapper-grid{
+	background-color: var(--colorWhite);
+}
+.wrapper-grid__content{
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--padding25);
+	width: 100%;
+}
+section.posts-thumbs{
+	flex: 1 1 30%;
+}
+section.posts-thumbs>picture{
+	width: 480px;
+	height: 360px;
+}
+.leasson-stage{
+	flex: 1 1 auto;
+	padding: var(--padding25);
+}
+.leasson-stage__block{
+	gap: var(--padding25);
+}
+.leasson-stage__block>pre{
+	align-self: center;
+}
+.leasson-stage__block>img{
+	align-self: center;
+	width: 720px;
+}
+
+pre.block_code{
+
+	max-height: 666px;
+	overflow: scroll;
+	overflow-y: scroll;
+	border-radius: 10px;
+}
+pre.block_code>code{
+	width: 100%;
+}
+footer.site-footer{
+	background-color: var(--colorBlackTrans2);
+	color: var(--colorWhite);
 }

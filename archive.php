@@ -1,34 +1,41 @@
 <?php
-
 /**
- * @package equd
+ * Шаблон страниц категорий и архивов.
+ * Template for category and archive pages.
+ *
+ * PHP version 8.1
+ *
+ * @category Template
+ * @package  EQUD
+ * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @license  https://opensource.org/licenses/MIT MIT License
+ * @link     https://github.com/facejungle/equd
  */
 
-get_header();
-?>
-<h2>root > archive.php</h2>
-	<main id="primary" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		get_header(); ?>
+		<main id="primary" class="site-main flex-column">
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'templates/content', get_post_type() );
-			endwhile;
-			the_posts_navigation();
-		else :
-			get_template_part( 'templates/content', 'none' );
-		endif;
-		?>
+			\EQUD\Content\Tags::entry_header();
+			if ( is_category() && ! is_archive() ) {
+				$cat      = get_category( get_query_var( 'cat' ) );
+				$cat_slug = $cat->slug;
 
-	</main><!-- #main -->
-
-<?php
-get_footer();
+				$locate_template = locate_template( "templates/category-$cat_slug.php" );
+				if ( $locate_template ) {
+					get_template_part( 'templates/category', $cat_slug );
+				} else {
+					get_template_part( 'templates/category' );
+				}
+			} if ( is_archive() ) {
+				$post_types      = get_post_type();
+				$locate_template = locate_template( "templates/archive-$post_types.php" );
+				if ( $locate_template ) :
+					get_template_part( 'templates/archive', $post_types );
+				else :
+					get_template_part( 'templates/archive' );
+				endif;
+			}
+			\EQUD\Content\Tags::entry_footer(); ?>
+		</main>
+		<?php
+		get_footer();

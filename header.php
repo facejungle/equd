@@ -1,21 +1,20 @@
 <?php
 /**
  * Общий шаблон шапки сайта.
+ * General site header template.
  *
  * PHP version 8.1
  *
  * @category Template
- * @package  Equd
+ * @package  EQUD
  * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} ?>
-<!doctype html>
+defined( 'ABSPATH' ) || exit; ?>
 
+<!doctype html>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1">
@@ -28,20 +27,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<header class="header">
-		<div class="header-line flex-row">
-			<div class="header-line__logo">LOGO</div>
-			<div class="header-line__search">SEARCH</div>
-			<div class="header-line__login">SIGN IN / SIGN UP</div>
+	<header id="head-top" class="site-header">
+		<div class="site-header__line flex-row">
+			<div class="site-logo">
+				<?php
+				if ( function_exists( 'the_custom_logo' ) ) {
+					if ( has_custom_logo() ) {
+						the_custom_logo();
+					} else {
+						echo 'LOGO';
+					}
+				} else {
+					echo 'LOGO';
+				}
+				?>
+			</div>
+			<div class="header-search">
+			<?php get_search_form(); ?>
+			</div>
+			<div class="header-login">
+			<?php \EQUD\Content\Tags::login_form(); ?>
+			</div>
 		</div>
-		<div class="header-line flex-row">
+		<div class="site-header__line flex-row">
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'top-menu',
 					'menu_id'        => 'top-menu',
 					'fallback_cb'    => '',
-					'walker'         => new \EQUD\MenuWalker(),
+					'walker'         => new \EQUD\Settings\MenuWalker(),
 				)
 			);
 			?>

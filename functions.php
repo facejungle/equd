@@ -1,10 +1,11 @@
 <?php
 /**
  * Основной файл всех функций темы.
+ * The main file of all theme functions.
  *
  * PHP version 8.1
  *
- * @package  Equd
+ * @package  EQUD
  * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
@@ -27,8 +28,7 @@ if ( ! defined( 'EQUD_PATH' ) ) {
 require_once EQUD_PATH . '/autoload.php';
 /**
  * Запуск проверки на зависимости.
- *
- * @package  Equd
+ * Run a dependency check.
  */
 function run_check_depends() {
 	\EQUD\Loader::check_depends();

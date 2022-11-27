@@ -1,0 +1,18 @@
+<svg width="720" height="360" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" preserveAspectRatio="none">
+      <defs>
+        <style type="text/css">
+          #holder text {
+            fill: #ffffff;
+            font-family: Open Sans;
+            font-size: 40px;
+            font-weight: 700;
+          }
+        </style>
+      </defs>
+      <g id="holder">
+        <rect width="100%" height="100%" fill="#cccccc"></rect>
+        <g>
+          <text text-anchor="middle" x="50%" y="50%" dy=".3em">720 x 360</text>
+        </g>
+      </g>
+    </svg>

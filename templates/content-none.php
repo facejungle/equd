@@ -6,7 +6,6 @@
 
 ?>
 
-<h2>templates > content-none.php</h2>
 <section class="no-results not-found">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'equd' ); ?></h1>

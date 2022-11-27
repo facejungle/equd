@@ -6,7 +6,7 @@
 
 ?>
 
-<h2>templates > content.php</h2>
+<h2>templates > content > content.php</h2>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -20,14 +20,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				\EQUD\Tags::posted_on();
-				\EQUD\Tags::posted_by();
+				\EQUD\Content\Tags::posted_on();
+				\EQUD\Content\Tags::posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php \EQUD\Tags::post_thumbnail(); ?>
+	<?php \EQUD\Content\Tags::post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -56,6 +56,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php \EQUD\Tags::entry_footer(); ?>
+		<?php \EQUD\Content\Tags::entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

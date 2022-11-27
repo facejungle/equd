@@ -1,17 +1,18 @@
 <?php
 /**
  * Расширяющий класс для Walker_Nav_Menu
+ * Extending class for Walker_Nav_Menu
  *
  * PHP version 8.1
  *
  * @category MenuWalker_Class
- * @package  Equd
+ * @package  EQUD
  * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
 
-namespace EQUD;
+namespace EQUD\Settings;
 
 use Walker_Nav_Menu;
 
@@ -19,9 +20,10 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Расширяющий класс для Walker_Nav_Menu. Позволяет перезаписать <ul class="sub-menu">
+ * Extending class for Walker_Nav_Menu. Allows you to overwrite <ul class="sub-menu">
  *
  * @category Extend_Class
- * @package  Equd
+ * @package  EQUD
  * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
@@ -29,9 +31,10 @@ defined( 'ABSPATH' ) || exit;
 class MenuWalker extends \Walker_Nav_Menu {
 	/**
 	 * Запускает список до добавления элементов.
+	 * Runs through the list before items are added.
 	 *
 	 * @category Loader_Class
-	 * @package  Equd
+	 * @package  EQUD
 	 * @param string   $output Используется для добавления дополнительного содержимого (передается по ссылке).
 	 * @param int      $depth  Глубина пункта меню. Используется для набивки.
 	 * @param stdClass $args   Объект аргументов wp_nav_menu().
@@ -56,6 +59,7 @@ class MenuWalker extends \Walker_Nav_Menu {
 
 	/**
 	 * Запускает вывод элемента.
+	 * Starts the output of an element.
 	 *
 	 * @see Walker::start_el()
 	 * @since 3.0.0
@@ -69,6 +73,7 @@ class MenuWalker extends \Walker_Nav_Menu {
 	public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
 		/**
 		 * Запускает вывод элемента.
+		 * Starts the output of an element.
 		 *
 		 * @var mixed     $wp_query
 		 * @param object  $item Объект элемента меню, подробнее ниже.

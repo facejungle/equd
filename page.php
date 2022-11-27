@@ -1,29 +1,26 @@
 <?php
-
 /**
- * @package equd
+ * Шаблон страницы одиночной записи.
+ * Singular post page template.
+ *
+ * PHP version 8.1
+ *
+ * @category Template
+ * @package  EQUD
+ * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @license  https://opensource.org/licenses/MIT MIT License
+ * @link     https://github.com/facejungle/equd
  */
-
-get_header();
-?>
-<h2>root > page.php</h2>
-	<main id="primary" class="site-main">
-
+get_header(); ?>
+<main id="primary" class="site-main flex-column">
+	<?php \EQUD\Content\Tags::entry_header(); ?>
+	<main class="entry-main flex-row">
 		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'templates/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
+		\EQUD\Content\Tags::sidebar();
+		get_template_part( 'templates/content', get_post_type() );
 		?>
-
-	</main><!-- #main -->
-
+	</main>
+	<?php \EQUD\Content\Tags::entry_footer(); ?>
+</main>
 <?php
 get_footer();

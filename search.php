@@ -1,16 +1,22 @@
 <?php
-
 /**
- * @package equd
+ * Шаблон страницы поиска.
+ * Search page template.
+ *
+ * PHP version 8.1
+ *
+ * @category Template
+ * @package  EQUD
+ * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @license  https://opensource.org/licenses/MIT MIT License
+ * @link     https://github.com/facejungle/equd
  */
 
 get_header();
 ?>
 <h2>root > search.php</h2>
 	<main id="primary" class="site-main">
-
 		<?php if ( have_posts() ) : ?>
-
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -19,31 +25,17 @@ get_header();
 					?>
 				</h1>
 			</header><!-- .page-header -->
-
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'templates/content', 'search' );
-
+				get_template_part( 'templates/content/search' );
 			endwhile;
-
 			the_posts_navigation();
-
 		else :
-
-			get_template_part( 'templates/content', 'none' );
-
+			get_template_part( 'templates/content/none' );
 		endif;
 		?>
-
 	</main><!-- #main -->
-
 <?php
 get_footer();
