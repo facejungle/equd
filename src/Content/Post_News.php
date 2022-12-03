@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Функционал произвольного типа постов "news".
  * Functionality of custom post type "news".
@@ -28,6 +29,7 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class Post_News {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -35,7 +37,9 @@ class Post_News {
 	public function __construct() {
 		$this->register_post_type_news();
 		$this->attach_tax_post_news();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Регистрация типа записи "news".
 	 * Registering the "news" post type
@@ -79,7 +83,13 @@ class Post_News {
 				'menu_position' => 2,
 				'menu_icon'     => 'dashicons-admin-site',
 				'hierarchical'  => false,
-				'supports'      => array( 'title', 'thumbnail', 'excerpt', 'comments', 'post-formats' ),
+				'supports'      => array(
+					'title',
+					'thumbnail',
+					'excerpt',
+					'comments',
+					'post-formats',
+				),
 				'taxonomies'    => array( 'category' ),
 				'has_archive'   => 'news',
 				'rewrite'       => array(
@@ -89,7 +99,9 @@ class Post_News {
 				'query_var'     => true,
 			)
 		);
-	}
+	}//end register_post_type_news()
+
+
 	/**
 	 * Добавление таксономий к типу записи "новости".
 	 * Attach taxonomies to the "news" post type.
@@ -97,9 +109,9 @@ class Post_News {
 	private function attach_tax_post_news() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				register_taxonomy_for_object_type( 'category', 'news' );
 			}
 		);
-	}
-}
+	}//end attach_tax_post_news()
+}//end class

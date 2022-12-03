@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Общий шаблон подвала сайта.
  * General site footer template.
@@ -55,13 +56,12 @@
 			<div class="site-footer__line">
 				<div class="site-info">
 					<?php
-					/* translators: 1: Theme name, 2: Theme author. */
+					// translators: 1: Theme name, 2: Theme author.
 					printf( esc_html__( 'Theme: %1$s by %2$s.', 'equd' ), 'equd', '<a href="https://vk.com/face_jungle">face jungle ;c</a>' );
 					?>
 				</div><!-- .site-info -->
 			</div>
 		</footer><!-- #colophon -->
 		<?php wp_footer(); ?>
-		<script>hljs.highlightAll();</script>
 	</body>
 </html>

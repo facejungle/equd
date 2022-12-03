@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы урока.
  * Lesson page template.

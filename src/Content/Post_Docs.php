@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Функционал произвольного типа постов "docs".
  * Functionality of custom post type "docs".
@@ -28,6 +29,7 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class Post_Docs {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -35,7 +37,9 @@ class Post_Docs {
 	public function __construct() {
 		$this->register_post_type_docs();
 		$this->attach_tax_post_docs();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Регистрация типа записи "docs".
 	 * Registering the "docs" post type
@@ -79,7 +83,13 @@ class Post_Docs {
 				'menu_position' => 2,
 				'menu_icon'     => 'dashicons-welcome-write-blog',
 				'hierarchical'  => false,
-				'supports'      => array( 'title', 'thumbnail', 'excerpt', 'comments', 'post-formats' ),
+				'supports'      => array(
+					'title',
+					'thumbnail',
+					'excerpt',
+					'comments',
+					'post-formats',
+				),
 				'taxonomies'    => array( 'category' ),
 				'has_archive'   => 'documentation',
 				'rewrite'       => array(
@@ -89,7 +99,9 @@ class Post_Docs {
 				'query_var'     => true,
 			)
 		);
-	}
+	}//end register_post_type_docs()
+
+
 	/**
 	 * Добавление таксономий к типу записи "документации".
 	 * Attach taxonomies to the "documentation" post type.
@@ -97,9 +109,9 @@ class Post_Docs {
 	private function attach_tax_post_docs() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				register_taxonomy_for_object_type( 'category', 'docs' );
 			}
 		);
-	}
-}
+	}//end attach_tax_post_docs()
+}//end class

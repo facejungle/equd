@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы поиска.
  * Search page template.
@@ -12,30 +13,19 @@
  * @link     https://github.com/facejungle/equd
  */
 
-get_header();
-?>
-<h2>root > search.php</h2>
-	<main id="primary" class="site-main">
-		<?php if ( have_posts() ) : ?>
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'equd' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+get_header(); ?>
+<main id="primary" class="site-main flex-column">
+	<?php \EQUD\Content\Tags::entry_header(); ?>
+	<main class="entry-main">
+		<div class="wrapper container flex-row">
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'templates/content/search' );
-			endwhile;
-			the_posts_navigation();
-		else :
-			get_template_part( 'templates/content/none' );
-		endif;
-		?>
-	</main><!-- #main -->
+			\EQUD\Content\Tags::sidebar();
+			get_template_part( 'templates/content', get_post_type() );
+			?>
+		</div>
+	</main>
+	<?php \EQUD\Content\Tags::entry_footer(); ?>
+</main>
 <?php
 get_footer();
+

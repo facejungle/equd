@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страниц архивов.
  * Template for archive pages.
@@ -13,18 +14,22 @@
  */
 
 ?>
-		<main class="entry-main flex-row">
-			<?php \EQUD\Content\Tags::sidebar(); ?>
-			<?php
-			if ( have_posts() ) :
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-					get_template_part( 'templates/content', get_post_type() );
-					endwhile;
+		<main class="entry-main">
+			<div class="wrapper container flex-row">
+				<?php \EQUD\Content\Tags::sidebar(); ?>
+				<div class="wrapper-grid flex-row">
+					<?php
+					if ( have_posts() ) :
+						// Start the Loop
+						while ( have_posts() ) :
+							the_post();
+							get_template_part( 'templates/content', get_post_type() );
+						endwhile;
 					else :
-						get_template_part( 'templates/content', 'none' );
-				endif;
+								get_template_part( 'templates/content', 'none' );
+					endif;
 					?>
+				</div>
+			</div>
 		</main>
 

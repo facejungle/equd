@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Общий шаблон шапки сайта.
  * General site header template.
@@ -26,7 +27,7 @@ defined( 'ABSPATH' ) || exit; ?>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
+	<?php \EQUD\Content\Tags::wp_body_open(); ?>
 	<header id="head-top" class="site-header">
 		<div class="site-header__line flex-row">
 			<div class="site-logo">
@@ -45,11 +46,13 @@ defined( 'ABSPATH' ) || exit; ?>
 			<div class="header-search">
 			<?php get_search_form(); ?>
 			</div>
-			<div class="header-login">
-			<?php \EQUD\Content\Tags::login_form(); ?>
+			<div class="menu-button">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
 			</div>
 		</div>
-		<div class="site-header__line flex-row">
+		<div class="site-header__line flex-column">
 			<?php
 			wp_nav_menu(
 				array(
@@ -60,5 +63,14 @@ defined( 'ABSPATH' ) || exit; ?>
 				)
 			);
 			?>
+		<section class="toogle-menu">
+			<p>toogle</p>
+			<p>toogle</p>
+			<p>toogle</p>
+			<p>toogle</p>
+			<p>toogle</p>
+			<p>toogle</p>
+		</section>
 		</div>
+		<div class="site-header__line reserve flex-row"></div>
 	</header>

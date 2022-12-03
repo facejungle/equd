@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Общий шаблон шапки сайта.
  * General site header template.
@@ -83,7 +84,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-
 ?>
 <footer id="colophon" class="site-footer">
 	<div class="site-footer__row">
@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site-footer__row">
 		<div class="site-info">
 			<?php
-			/* translators: 1: Theme name, 2: Theme author. */
+			// translators: 1: Theme name, 2: Theme author.
 			printf( esc_html__( 'Theme: %1$s by %2$s.', 'equd' ), 'equd', '<a href="https://vk.com/face_jungle">face jungle ;c</a>' );
 			?>
 		</div><!-- .site-info -->
@@ -245,7 +245,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="site-footer__line">
 				<div class="site-info">
 					<?php
-					/* translators: 1: Theme name, 2: Theme author. */
+					// translators: 1: Theme name, 2: Theme author.
 					printf( esc_html__( 'Theme: %1$s by %2$s.', 'equd' ), 'equd', '<a href="https://vk.com/face_jungle">face jungle ;c</a>' );
 					?>
 				</div><!-- .site-info -->

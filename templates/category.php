@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы категории. Вывод постов и сайдбар.
  * Category page template.
@@ -13,28 +14,33 @@
  */
 
 ?>
-		<main class="entry-main flex-row">
-			<?php \EQUD\Content\Tags::sidebar();
-				$cat       = get_category( get_query_var( 'cat' ) );
-				$args      = array(
-					'post_type' => 'any',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => $cat->category_nicename,
+		<main class="entry-main">
+			<div class="wrapper container flex-row">
+				<?php \EQUD\Content\Tags::sidebar(); ?>
+				<div class="wrapper-grid flex-row">
+					<?php
+					$cat       = get_category( get_query_var( 'cat' ) );
+					$args      = array(
+						'post_type' => 'any',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'category',
+								'field'    => 'slug',
+								'terms'    => $cat->category_nicename,
+							),
 						),
-					),
-				);
-				$any_posts = new WP_Query( $args );
-				if ( $any_posts->have_posts() ) :
-					/* Start the Loop */
-					while ( $any_posts->have_posts() ) :
-						$any_posts->the_post();
-						get_template_part( 'templates/content', get_post_type() );
-					endwhile;
-				else :
-					get_template_part( 'templates/content/none' );
-				endif;
-				?>
+					);
+					$any_posts = new WP_Query( $args );
+					if ( $any_posts->have_posts() ) :
+						// Start the Loop
+						while ( $any_posts->have_posts() ) :
+							$any_posts->the_post();
+							get_template_part( 'templates/content', get_post_type() );
+						endwhile;
+					else :
+							get_template_part( 'templates/content/none' );
+					endif;
+					?>
+				</div>
+			</div>
 		</main>

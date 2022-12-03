@@ -19,10 +19,10 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				\EQUD\Content\Tags::posted_on();
-				\EQUD\Content\Tags::posted_by();
-				?>
+			<?php
+			\EQUD\Content\Tags::posted_on();
+			\EQUD\Content\Tags::posted_by();
+			?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -34,7 +34,7 @@
 		the_content(
 			sprintf(
 				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
+					// translators: %s: Name of current post. Only visible to screen readers
 					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'equd' ),
 					array(
 						'span' => array(

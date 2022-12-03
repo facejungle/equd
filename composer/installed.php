@@ -1,4 +1,6 @@
-<?php return array(
+<?php
+
+return array(
 	'root'     => array(
 		'name'           => 'equd/theme',
 		'pretty_version' => 'dev-main',

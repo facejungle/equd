@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Основной файл для загрузки всех функций темы.
  * The main file to load all the features of the theme.
@@ -45,7 +46,9 @@ class Loader {
 		$post_leassons = new \EQUD\Content\Post_Leassons();
 		$post_news     = new \EQUD\Content\Post_News();
 		$post_docs     = new \EQUD\Content\Post_Docs();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Проверка на установку зависимостей и вывод информационного сообщения.
 	 * Check for installation of dependencies and display an informational message.
@@ -56,7 +59,7 @@ class Loader {
 			<div class="notice notice-error">
 				<p>
 					<b><?php esc_html_e( 'EQUD THEME :', 'equd' ); ?></b>
-					<?php esc_html_e( 'Install the depend', 'equd' ); ?>
+			<?php esc_html_e( 'Install the depend', 'equd' ); ?>
 					<a href="https://carbonfields.net/zip/latest/">
 						<b>Carbon Fields plugin</b>
 					</a>
@@ -73,5 +76,6 @@ class Loader {
 		} else {
 			\Carbon_Fields\Carbon_Fields::boot();
 		}
-	}
-}
+	}//end check_depends()
+}//end class
+

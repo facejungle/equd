@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы одиночной записи.
  * Singular post page template.
@@ -13,18 +14,23 @@
  */
 
 if ( ! is_singular() ) {
-	?> <section class="posts posts-thumbs"> <?php
-		\EQUD\Content\Tags::post_thumbnail();
-		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-	?> </section> <?php
+	?> 
+			<section class="blog posts-thumbs flex-column"> 
+				<?php
+				\EQUD\Content\Tags::post_thumbnail();
+				the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><div class="posts-thumbs__title"><h2 class="entry-title">', '</h2></div></a>' );
+				?>
+			</section>
+	<?php
 } elseif ( is_singular() ) {
 	?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>				
-					<?php
-					the_content();
-					?>			
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>                
+				<?php
+				the_content();
+				?>
+								
 			</article>
-			<?php
+	<?php
 }
 
 

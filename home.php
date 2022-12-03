@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страниц категорий и архивов.
  * Template for category and archive pages.
@@ -15,19 +16,25 @@
 get_header(); ?>
 <main id="primary" class="site-main flex-column">
 	<?php \EQUD\Content\Tags::entry_header(); ?>
-	<main class="entry-main flex-row">
-		<?php 
-		\EQUD\Content\Tags::sidebar();
-		if ( have_posts() ) :
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'templates/content', get_post_type() );
-				endwhile;
-				else :
-					get_template_part( 'templates/content', 'none' );
-			endif;
-				?>
-	</main>
+	<main class="entry-main">
+			<div class="wrapper container flex-row">
+				<?php \EQUD\Content\Tags::sidebar(); ?>
+				<div class="wrapper-grid flex-row">
+					<?php
+					if ( have_posts() ) :
+						// Start the Loop
+						while ( have_posts() ) :
+							the_post();
+							get_template_part( 'templates/content', get_post_type() );
+						endwhile;
+					else :
+								get_template_part( 'templates/content', 'none' );
+					endif;
+					?>
+				</div>
+			</div>
+		</main>
 	<?php \EQUD\Content\Tags::entry_footer(); ?>
 </main>
+<?php
+get_footer();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы одиночной записи.
  * Singular post page template.
@@ -16,18 +17,19 @@ if ( ! is_singular() ) {
 	the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 } elseif ( is_singular() ) {
 	?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>				
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>                
 				<?php
 				if ( is_singular() ) {
-					\EQUD\Content\Tags::sidebar(); }
+					\EQUD\Content\Tags::sidebar();
+				}
 				?>
 				<main class="entry-content">
 					<?php
 					the_content();
 					?>
-				</main>				
+				</main>                
 			</article>
-			<?php
+	<?php
 }
 
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Редактирование стандартной таксономии "рубрики".
  * Editing the standard taxonomy "categories".
@@ -30,6 +31,7 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class Categories {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -38,7 +40,9 @@ class Categories {
 		self::edit_taxonomy();
 		self::edit_permalink();
 		$this->settings_page_categories();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Редактирование таксономии category.
 	 * Editing the category taxonomy.
@@ -46,7 +50,7 @@ class Categories {
 	private static function edit_taxonomy() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				global $wp_taxonomies;
 
 				$labels                 = & $wp_taxonomies['category']->labels;
@@ -62,37 +66,41 @@ class Categories {
 				$labels->all_items      = 'Все категории';
 				$labels->menu_name      = __( 'Categories', 'equd' );
 				$labels->name_admin_bar = 'Категории';
-
 			}
 		);
 		global $wp_taxonomies;
-	}
+	}//end edit_taxonomy()
+
+
 	/**
 	 * Замена части ссылки %category% у произвольных типов постов.
 	 * Replacing the %category% part of the link for custom post types.
 	 */
 	private static function edit_permalink() {
-		$permalinks = static function( $permalink, $post ) {
+		$permalinks = static function ( $permalink, $post ) {
 			// выходим если это не наш тип записи: без холдера %products%.
 			if ( strpos( $permalink, '%category%' ) === false ) {
 				return $permalink;
 			}
-				// Получаем элементы таксы.
-				$terms = get_the_terms( $post, 'category' );
-				// если есть элемент заменим холдер.
+
+			// Получаем элементы таксы.
+			$terms = get_the_terms( $post, 'category' );
+			// если есть элемент заменим холдер.
 			if ( ! is_wp_error( $terms ) && ! empty( $terms ) && is_object( $terms[0] ) ) {
 				$cat_id   = $terms[0]->term_id;
 				$cat_path = get_category_parents( $cat_id, false, '/', true );
 			}
 				// элемента нет, а должен быть...
 			else {
-				$cat_path = 'no-category/';
+				 $cat_path = 'no-category/';
 			}
 
 			return str_replace( '%category%/', $cat_path, $permalink );
 		};
 		add_filter( 'post_type_link', $permalinks, 1, 2 );
-	}
+	}//end edit_permalink()
+
+
 	/**
 	 * Добавить страницу в админ меню с настройкой таксономии "категории".
 	 * Add a page to the admin menu with the "category" taxonomy setting.
@@ -117,5 +125,5 @@ class Categories {
 				return $parent_file;
 			}
 		);
-	}
-}
+	}//end settings_page_categories()
+}//end class

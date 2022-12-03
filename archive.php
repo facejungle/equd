@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страниц категорий и архивов.
  * Template for category and archive pages.
@@ -35,7 +36,9 @@
 					get_template_part( 'templates/archive' );
 				endif;
 			}
-			\EQUD\Content\Tags::entry_footer(); ?>
+
+			\EQUD\Content\Tags::entry_footer();
+			?>
 		</main>
 		<?php
 		get_footer();

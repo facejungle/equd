@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Функционал произвольного типа постов "leassons".
  * Functionality of custom post type "leassons".
@@ -7,7 +8,7 @@
  *
  * @category Post_Leassons Class
  * @package  EQUD
- * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @author   Squiz Pty Ltd <products@squiz.net>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
@@ -16,8 +17,9 @@ namespace EQUD\Content;
 
 defined( 'ABSPATH' ) || exit;
 
-use \Carbon_Fields\Container;
-use \Carbon_Fields\Field;
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
 /**
  * Регистрация типа поста "уроки". Регистрация плоских таксономий. Подключение шаблонов. Теги вывода постов, контента.
  * Registering a "leassons" post type. Registering a flat taxonomies. Include templates. Tags for displaying posts, content.
@@ -31,6 +33,7 @@ use \Carbon_Fields\Field;
  * @link     https://github.com/facejungle/equd
  */
 class Post_Leassons {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -40,7 +43,9 @@ class Post_Leassons {
 		$this->register_tax_post_leassons();
 		$this->attach_tax_post_leassons();
 		$this->crb_leassons();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Регистрация типа записи "leassons".
 	 * Registering the "leassons" post type
@@ -85,7 +90,13 @@ class Post_Leassons {
 				'menu_position' => 2,
 				'menu_icon'     => 'dashicons-editor-ol',
 				'hierarchical'  => false,
-				'supports'      => array( 'title', 'thumbnail', 'excerpt', 'comments' ),
+				'supports'      => array(
+					'title',
+					'thumbnail',
+					'excerpt',
+					'comments',
+					'revisions',
+				),
 				'taxonomies'    => array( 'category' ),
 				'has_archive'   => 'leassons',
 				'rewrite'       => array(
@@ -95,7 +106,9 @@ class Post_Leassons {
 				'query_var'     => true,
 			)
 		);
-	}
+	}//end register_post_type_leassons()
+
+
 	/**
 	 * Регистрация плоских таксономий.
 	 * Registration of flat taxonomies.
@@ -127,7 +140,9 @@ class Post_Leassons {
 				'query_var'    => true,
 			)
 		);
-	}
+	}//end register_tax_post_leassons()
+
+
 	/**
 	 * Добавление таксономий к типу записи "уроки".
 	 * Attach taxonomies to the "leassons" post type.
@@ -135,24 +150,22 @@ class Post_Leassons {
 	private function attach_tax_post_leassons() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				register_taxonomy_for_object_type( 'category', 'leassons' );
 			}
 		);
-	}
+	}//end attach_tax_post_leassons()
+
+
 	/**
 	 * Настройка Carbon Fields, добавление нового поста "урок".
 	 * Setting up Carbon Fields, adding a new "lesson" post.
 	 */
 	private function crb_leassons() {
-		$backend_fields = static function() {
-			Container::make( 'post_meta', __( 'Информация для поиска этого урока', 'equd' ) )
-			->where( 'post_type', '=', 'leassons' )
-			->add_fields(
+		$backend_fields = static function () {
+			Container::make( 'post_meta', __( 'Информация для поиска этого урока', 'equd' ) )->where( 'post_type', '=', 'leassons' )->add_fields(
 				array(
-					Field::make( 'association', 'leasson_devices', __( 'Устройства:' ) )
-					->set_width( 50 )
-					->set_types(
+					Field::make( 'association', 'leasson_devices', __( 'Устройства:' ) )->set_width( 50 )->set_types(
 						array(
 							array(
 								'type'     => 'term',
@@ -160,9 +173,7 @@ class Post_Leassons {
 							),
 						)
 					),
-					Field::make( 'association', 'leasson_programms', __( 'Программы:' ) )
-					->set_width( 50 )
-					->set_types(
+					Field::make( 'association', 'leasson_programms', __( 'Программы:' ) )->set_width( 50 )->set_types(
 						array(
 							array(
 								'type'     => 'term',
@@ -170,9 +181,7 @@ class Post_Leassons {
 							),
 						)
 					),
-					Field::make( 'association', 'leasson_diff', __( 'Сложность урока:' ) )
-					->set_width( 33 )
-					->set_types(
+					Field::make( 'association', 'leasson_diff', __( 'Сложность урока:' ) )->set_width( 33 )->set_types(
 						array(
 							array(
 								'type'     => 'term',
@@ -194,81 +203,58 @@ class Post_Leassons {
 				'plural_name'   => __( 'элементы блока', 'equd' ),
 				'singular_name' => __( 'элемент блока', 'equd' ),
 			);
-			Container::make( 'post_meta', __( 'Основное содержание урока', 'equd' ) )
-			->show_on_post_type( 'leassons' )
-			->add_fields(
+			Container::make( 'post_meta', __( 'Основное содержание урока', 'equd' ) )->show_on_post_type( 'leassons' )->add_fields(
 				array(
-					Field::make( 'complex', 'leasson_stages', __( 'Этапы урока:', 'equd' ) )
-					->set_layout( 'tabbed-vertical' )
-					->setup_labels( $leasson_add_stage_button )
-					->help_text( __( 'Урок состоит из этапов. Этап содержит один заголовок, и неограниченное количество блоков контента. В блоке контента может быть расположенна любая информация.', 'equd' ) )
-					->add_fields(
+					Field::make( 'complex', 'leasson_stages', __( 'Этапы урока:', 'equd' ) )->set_layout( 'tabbed-vertical' )->setup_labels( $leasson_add_stage_button )->help_text( __( 'Урок состоит из этапов. Этап содержит один заголовок, и неограниченное количество блоков контента. В блоке контента может быть расположенна любая информация.', 'equd' ) )->add_fields(
 						'leasson_stage',
 						__( 'Этап', 'equd' ),
 						array(
-							Field::make( 'text', 'leasson_stage_name', __( 'Заголовок', 'equd' ) )
-							->help_text( __( 'Заголовок для этапа урока', 'equd' ) )
-							->set_attribute( 'placeholder', __( 'Заголовок этапа', 'equd' ) ),
-							Field::make( 'complex', 'leasson_stage_content', __( 'Контент этапа', 'equd' ) )
-							->setup_labels( $leasson_add_content_block_button )
-							->add_fields(
+							Field::make( 'text', 'leasson_stage_name', __( 'Заголовок', 'equd' ) )->help_text( __( 'Заголовок для этапа урока', 'equd' ) )->set_attribute( 'placeholder', __( 'Заголовок этапа', 'equd' ) ),
+							Field::make( 'complex', 'leasson_stage_content', __( 'Контент этапа', 'equd' ) )->setup_labels( $leasson_add_content_block_button )->add_fields(
 								'leasson_stage_content_block',
 								__( 'Блок контента', 'equd' ),
 								array(
-									Field::make( 'complex', 'leasson_stage_content_block_list', __( 'Список контента в блоке', 'equd' ) )
-									->setup_labels( $leasson_add_block_element_button )
-									->set_layout( 'tabbed-vertical' )
-									->help_text( __( '#Блок контента', 'equd' ) )
-									->add_fields(
+									Field::make( 'complex', 'leasson_stage_content_block_list', __( 'Список контента в блоке', 'equd' ) )->setup_labels( $leasson_add_block_element_button )->set_layout( 'tabbed-vertical' )->help_text( __( '#Блок контента', 'equd' ) )->add_fields(
 										'leasson_stage_content_block_title',
 										__( 'Подзаголовок', 'equd' ),
 										array(
-											Field::make( 'text', 'leasson_stage_content_block_title_elem', __( 'Подзаголовок' ) )
-											->set_attribute( 'placeholder', __( 'Подзаголовок', 'equd' ) ),
+											Field::make( 'text', 'leasson_stage_content_block_title_elem', __( 'Подзаголовок' ) )->set_attribute( 'placeholder', __( 'Подзаголовок', 'equd' ) ),
 										)
-									)
-									->add_fields(
+									)->add_fields(
 										'leasson_stage_content_block_text',
 										__( 'Текст', 'equd' ),
 										array(
 											Field::make( 'rich_text', 'leasson_stage_content_block_text_elem', __( 'Текст' ) ),
 										)
-									)
-									->add_fields(
+									)->add_fields(
 										'leasson_stage_content_block_code',
 										__( 'Код', 'equd' ),
 										array(
 											Field::make( 'textarea', 'leasson_stage_content_block_code_elem', __( 'Код' ) ),
 										)
-									)
-									->add_fields(
+									)->add_fields(
 										'leasson_stage_content_block_image',
 										__( 'Изображение', 'equd' ),
 										array(
 											Field::make( 'image', 'leasson_stage_content_block_image_elem', __( 'Изображение' ) ),
 										)
-									)
-									->add_fields(
+									)->add_fields(
 										'leasson_stage_content_block_association',
 										__( 'Ассоциация', 'equd' ),
 										array(
 											Field::make( 'association', 'leasson_stage_content_block_association_elem', __( 'Ассоциация' ) ),
 										)
-									)
-									->add_fields(
+									)->add_fields(
 										'leasson_stage_content_block_media_gallery',
 										__( 'media_gallery', 'equd' ),
 										array(
-											Field::make( 'media_gallery', 'leasson_stage_content_block_media_gallery_elem', __( 'media_gallery' ) )
-											->set_type( array( 'image', 'video' ) )
-											->set_duplicates_allowed( false ),
+											Field::make( 'media_gallery', 'leasson_stage_content_block_media_gallery_elem', __( 'media_gallery' ) )->set_type( array( 'image', 'video' ) )->set_duplicates_allowed( false ),
 										)
 									),
 								)
 							),
 						)
-					)
-					->set_header_template(
+					)->set_header_template(
 						'=
 					<% if (leasson_stage_name) { %>
 						<%- leasson_stage_name %>
@@ -279,5 +265,5 @@ class Post_Leassons {
 			);
 		};
 		add_action( 'carbon_fields_register_fields', $backend_fields );
-	}
-}
+	}//end crb_leassons()
+}//end class

@@ -1,148 +1,270 @@
-.size-auto,  .size-full, .size-large, .size-medium, .size-thumbnail {max-width: 100%;height: auto;}
-* {padding: 0px;margin: 0px;border: none;}
+.size-auto,  .size-full, .size-large, .size-medium, .size-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
 *,*::before,
-*::after {box-sizing: border-box;}
-:focus, :active {outline: none;}
-a:focus, a:active {outline: none;}
-a, a:link, a:visited  {color: inherit;text-decoration: none;display: inline-block;}
-a:hover  {color: var(--colorBlack);text-decoration: underline;}
-ul, ul li, li {list-style: none;}
-h1{font-size: 36px;font-weight: 500;line-height: 1em;}
-h2{font-size: 28px;line-height: 1em;}
-h3{font-size: 24px}
-p{line-height: 1.3em; text-align: justify;}
-img {vertical-align: top;}
-img, svg {max-width: 100%;height: auto;}
-input, textarea, button, select {font-family: inherit;font-size: inherit;color: inherit;background-color: transparent;}
-input::-ms-clear {display: none;}
-button, input[type="submit"] {display: inline-block;box-shadow: none;background-color: transparent;background: none;cursor: pointer;}
+*::after {
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+a, a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover {
+    color: var(--colorblack);
+    text-decoration: underline;
+}
+
+ul, ul li, li {
+    list-style: none;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.3em
+}
+
+p {
+    line-height: 1.3em;
+    text-align: justify;
+}
+
+img {
+    vertical-align: top;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
 input:focus, input:active,
-button:focus, button:active {outline: none;}
-button::-moz-focus-inner {padding: 0;border: 0;}
-label {cursor: pointer;}
-legend {display: block;}
-.sub-menu{display: none;}
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+legend {
+    display: block;
+}
+
+.sub-menu {
+    display: none;
+}
+
+red {
+    color: red;
+}
+
+green {
+    color: var(--colorgreen);
+}
+
 /* ----------> Scrollbar <---------- ---------- ---------- ---------- ----------> Scrollbar <---------- */
-::-webkit-scrollbar{position: absolute;z-index: 48;top: 0;right: 0;width: 8px;height: 100%;background-color:var(--colorWhite);}
-::-webkit-scrollbar-thumb{position: absolute;z-index: 49;top: 0;left: 0;width: 100%;cursor: pointer;background-color: var(--colorGreen);border-radius: 5px;}
-
-@font-face
-{
-	font-display: swap;
-	font-family: "Montserrat", Verdana, sans-serif;
-	src: local("Montserrat"), url("/wp-content/themes/test/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+::-webkit-scrollbar {
+    position: absolute;
+    z-index: 48;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+    background-color: var(--colorwhite);
 }
-@media only screen and (max-width: 480px) {
-	:root{
-		--padding25: 12.5px;
-		--padding50: 25px;
-		--padding100: 50px;
-		--marginCalc: 25px;
-	}
-	}
-@media only screen and (min-width: 480px) and (max-width: 1366px){
-	:root{
-		--targetWidth: 480;
-		--targetWidthPx: 480px;
-		--nominalWidth: 1366;
-		--coefficient: calc(
-			(100vw - var(--targetWidthPx)) / (var(--nominalWidth) - var(--targetWidth))
-			);
-		--padding25: calc(
-			(var(--coefficient) * 6) + 12.5px
-		);
-		--padding50: calc(
-			(var(--coefficient) * 12.5) + 25px
-		);
-		--padding100: calc(
-			(var(--coefficient) * 25) + 50px
-		);
-		--marginCalc: calc(
-			(var(--coefficient) * 25) + 50px
-		);
-	}
-	}
+
+::-webkit-scrollbar-thumb {
+    position: absolute;
+    z-index: 49;
+    top: 0;
+    left: 0;
+    width: 100%;
+    cursor: pointer;
+    background-color: var(--colorgreen);
+    border-radius: 5px;
+}
+
+@font-face {
+    font-size: 18px;
+    font-display: swap;
+    font-family: "Montserrat", Verdana, sans-serif;
+    src: local("Montserrat"), url("/wp-content/themes/test/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+@media only screen and (max-width: 380px) {
+
+    :root {
+        --padding25: 12.5px;
+        --padding50: 25px;
+        --padding100: 50px;
+        --margincalc: 25px;
+        --maxwidthcontainer: 380px;
+        --totalcontainerwidth: calc(var(--maxwidthcontainer) + (var(--padding25) * 2));
+    }
+
+}
+
+@media only screen and (min-width: 380px) and (max-width: 1366px) {
+
+    :root {
+        --targetwidth: 380;
+        --targetwidthpx: 380px;
+        --nominalwidth: 1366;
+        --maxwidthcontainer: 1200px;
+        --totalcontainerwidth: calc(100vw - (var(--padding25) * 2));
+        --coefficient: calc(
+        (100vw - var(--targetwidthpx)) / (var(--nominalwidth) - var(--targetwidth))
+        );
+        --padding25: calc(
+        (var(--coefficient) * 6) + 12.5px
+        );
+        --padding50: calc(
+        (var(--coefficient) * 12.5) + 25px
+        );
+        --padding100: calc(
+        (var(--coefficient) * 25) + 50px
+        );
+        --margincalc: calc(
+        (var(--coefficient) * 25) + 50px
+        );
+    }
+
+}
+
 @media only screen and (min-width: 1366px) {
-	:root{
-		--targetWidth: 1366;
-		--targetWidthPx: 1366px;
-		--nominalWidth: 1920;
-		--coefficient: calc(
-			(100vw - var(--targetWidthPx)) / (var(--nominalWidth) - var(--targetWidth))
-		);
 
-		--padding25: calc(
-			(var(--coefficient) * 6.5) + 18.5px
-		);
-		--padding50: calc(
-			(var(--coefficient) * 12.5) + 37.5px
-		);
-		--padding100: calc(
-			(var(--coefficient) * 25) + 75px
-		);
-		--marginCalc: calc(
-			(var(--coefficient) * 50) + 150px
-		);
-	}
-	}
-:root{
-	display: block;
-	margin: 0;
-	padding: 0;
-	/*
-	FONTS
-	*/
-	--fontMontserrat: "Montserrat", Verdana, sans-serif;
-	font-family: var(--fontMontserrat);
-	-webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-	/*
-	COLORS, BORDER & SHADOWS
-	*/
-	--colorWhite:#fcfcfc;
-	--color0Gray:#f0f0f0;
-	--colorGreen: #B5D482;
-	--colorBlack: #333;
-	--colorBlackTrans0: rgba(0, 0, 0, 0.2);
-	--colorBlackTrans1: rgba(0, 0, 0, 0.4);
-	--colorBlackTrans2: rgba(0, 0, 0, 0.6);
+    :root {
+        --targetwidth: 1366;
+        --targetwidthpx: 1366px;
+        --nominalwidth: 1920;
+        --maxwidthcontainer: 1520px;
+        --totalcontainerwidth: calc(var(--maxwidthcontainer) + (var(--padding25) * 2));
+        --coefficient: calc(
+        (100vw - var(--targetwidthpx)) / (var(--nominalwidth) - var(--targetwidth))
+        );
+        --padding25: calc(
+        (var(--coefficient) * 6.5) + 18.5px
+        );
+        --padding50: calc(
+        (var(--coefficient) * 12.5) + 37.5px
+        );
+        --padding100: calc(
+        (var(--coefficient) * 25) + 75px
+        );
+        --margincalc: calc(
+        (var(--coefficient) * 50) + 150px
+        );
+    }
 
-	--shadowBlock: 0 8px 8px -8px rgba(0,0,0,.3);
-	--shadowFix: 0 0 18px rgba(0,0,0,.3);
-	--shadowFixMini: 0 0 9px rgba(0,0,0,.3);
-	--shadowText: 0 3px 6px rgba(0,0,0,.5);
-
-	--border: 1px solid rgba(0,0,0,.2);
-
-	--Ellipse: 50% 20% / 10% 40%;
-	/*
-	CALC
-	*/
-	--minWidth: 320px;
-	--maxWidth: 1920px;
-
-	--maxWidthContainer: 1520px;
-	--totalContainerWidth: calc(var(--maxWidthContainer) + (var(--padding50) * 2));
-
-	--marginCalcs: 0px calc(20px + (50 + 50 * 0.7) * ((100vw - 720px) / 1920));
-
-
-	--pc: var(--totalContainerWidth);
-	--tablet: 991.98em;
-	--mobile: 767.98em;
-	--mobileSmall: 479em;
 }
 
-.flex-column{
-	display: flex;
-	flex-direction: column;
+:root {
+    display: block;
+    margin: 0;
+    padding: 0;
+    /*
+    FONTS
+    */
+    --fontmontserrat: "Montserrat", verdana, sans-serif;
+    font-family: var(--fontmontserrat);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+    /*
+    COLORS, BORDER & SHADOWS
+    */
+    --colormain: #006363;
+    --colorwhite: #FCFCFC;
+    --colorgray: #CCC;
+    --colorblack: #333;
+    --colorgreen: #CCC;
+    --colorblacktrans0: rgba(0, 0, 0, 0.2);
+    --colorblacktrans1: rgba(0, 0, 0, 0.4);
+    --colorblacktrans2: rgba(0, 0, 0, 0.6);
+    --color0: #006363;
+    --color1: #006363;
+    --color2: #006363;
+    --color3: #006363;
+    --color0gray: #F0F0F0;
+    --shadowblock: 0 8px 8px -8px rgba(0,0,0,.3);
+    --shadowfix: 0 0 18px rgba(0,0,0,.3);
+    --shadowfixmini: 0 0 9px rgba(0,0,0,.3);
+    --shadowtext: 0 3px 6px rgba(0,0,0,.5);
+    --border: 1px solid rgba(0,0,0,.2);
+    --ellipse: 50% 20% / 10% 40%;
+    /*
+    CALC
+    */
+    --margincalcs: 0px calc(20px + (50 + 50 * 0.7) * ((100vw - 720px) / 1920));
+    --pc: var(--totalcontainerwidth);
+    --tablet: 991.98em;
+    --mobile: 767.98em;
+    --mobilesmall: 479em;
 }
-.flex-row{
-	display: flex;
-	flex-direction: row;
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
-.container{
-	max-width: 900px;
-	margin: auto;
-	}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    max-width: var(--totalcontainerwidth);
+    margin: auto;
+    padding: 0 var(--padding25);
+}

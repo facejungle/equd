@@ -1,14 +1,15 @@
 <?php
+
 /**
  * Основной файл всех функций темы.
  * The main file of all theme functions.
  *
  * PHP version 8.1
  *
- * @package  EQUD
- * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     https://github.com/facejungle/equd
+ * @package EQUD
+ * @author  Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link    https://github.com/facejungle/equd
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -26,13 +27,17 @@ if ( ! defined( 'EQUD_PATH' ) ) {
 }
 
 require_once EQUD_PATH . '/autoload.php';
+
+
 /**
  * Запуск проверки на зависимости.
  * Run a dependency check.
  */
 function run_check_depends() {
 	\EQUD\Loader::check_depends();
-}
+}//end run_check_depends()
+
+
 add_action( 'admin_init', 'run_check_depends' );
 
 new \EQUD\Loader();

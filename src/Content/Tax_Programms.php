@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Добавляет функционал таксономии "программы".
  * Adds "programms" taxonomy functionality.
@@ -16,8 +17,9 @@ namespace EQUD\Content;
 
 defined( 'ABSPATH' ) || exit;
 
-use \Carbon_Fields\Container;
-use \Carbon_Fields\Field;
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
 /**
  * Регистрация таксономии "программы". Создание страницы настроек таксономии. Подключение шаблонов.
  * Registration of taxonomy "programs". Creating a taxonomy settings page. Connecting templates.
@@ -31,6 +33,7 @@ use \Carbon_Fields\Field;
  * @link     https://github.com/facejungle/equd
  */
 class Tax_Programms {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -38,7 +41,9 @@ class Tax_Programms {
 	public function __construct() {
 		$this->register_tax_programms();
 		$this->settings_page_tax_programms();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Регистрация таксономии "программы".
 	 * Registering the "programms" taxonomy.
@@ -69,7 +74,9 @@ class Tax_Programms {
 				'query_var'    => true,
 			)
 		);
-	}
+	}//end register_tax_programms()
+
+
 	/**
 	 * Добавить страницу в админ меню с настройкой таксономии "программы".
 	 * Add a page to the admin menu with the "programms" taxonomy setting.
@@ -100,5 +107,5 @@ class Tax_Programms {
 				return $parent_file;
 			}
 		);
-	}
-}
+	}//end settings_page_tax_programms()
+}//end class

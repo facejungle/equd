@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Основной файл шаблона, если не использован другой.
  * The main template file, unless another one is used.
@@ -15,8 +16,10 @@
 get_header(); ?>
 <main id="primary" class="site-main flex-column">
 	<?php \EQUD\Content\Tags::entry_header(); ?>
-	<main class="entry-main flex-row">
-	<?php
+	<main class="entry-main">
+		<div class="wrapper container flex-row">
+			<?php
+			\EQUD\Content\Tags::sidebar();
 			if ( have_posts() ) :
 				if ( is_home() && ! is_front_page() ) :
 					?>
@@ -25,14 +28,14 @@ get_header(); ?>
 					</header>
 					<?php
 				endif;
-				/* Start the Loop */
+				// Start the Loop
 				while ( have_posts() ) :
 					the_post();
 					/*
-					* Include the Post-Type-specific template for the content.
-					* If you want to override this in a child theme, then include a file
-					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-					*/
+					 * Include the Post-Type-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					 */
 					get_template_part( 'templates/content', get_post_type() );
 				endwhile;
 				the_posts_navigation();
@@ -40,9 +43,9 @@ get_header(); ?>
 				get_template_part( 'templates/content', 'none' );
 			endif;
 			?>
+		</div>
 	</main>
 	<?php \EQUD\Content\Tags::entry_footer(); ?>
 </main>
 <?php
 get_footer();
-

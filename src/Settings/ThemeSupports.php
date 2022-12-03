@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Файл с основными настройками темы.
  * File with basic theme settings.
@@ -7,7 +8,7 @@
  *
  * @category ThemeSupports Class
  * @package  EQUD
- * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
+ * @author   Squiz Pty Ltd <products@squiz.net>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
@@ -26,6 +27,7 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class ThemeSupports {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -36,7 +38,9 @@ class ThemeSupports {
 		self::register_menu();
 		self::register_widget_areas();
 		self::add_image_size();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Регистрация текстового домена и добавление поддержки темой.
 	 * Registering a text domain and adding theme support.
@@ -71,12 +75,14 @@ class ThemeSupports {
 			$GLOBALS['content_width'] = apply_filters( 'equd_content_width', 1520 );
 		};
 		add_action( 'after_setup_theme', $theme_supports );
-		/**
+		/*
 		 * Удаление префикса у архивов.
 		 * Removing the prefix from archives.
 		 */
 		add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
-	}
+	}//end theme_support()
+
+
 	/**
 	 * Добавление поддержки файлов .webp .svg.
 	 * Adding support for .webp .svg files.
@@ -90,7 +96,9 @@ class ThemeSupports {
 				return $mimes;
 			}
 		);
-	}
+	}//end mime_supports()
+
+
 	/**
 	 * Регистрация областей меню.
 	 * Registering menu areas.
@@ -110,7 +118,9 @@ class ThemeSupports {
 			);
 		};
 		add_action( 'after_setup_theme', $theme_menus );
-	}
+	}//end register_menu()
+
+
 	/**
 	 * Регистрация областей виджетов.
 	 * Registering widget areas.
@@ -141,7 +151,9 @@ class ThemeSupports {
 			);
 		};
 		add_action( 'widgets_init', $sidebars );
-	}
+	}//end register_widget_areas()
+
+
 	/**
 	 * Добавление размеров изображений для обрезки во время загрузки в медиафайлах, а так же для вставки на сайт.
 	 * Adding image sizes for cropping during upload in media files, as well as for inserting into the site.
@@ -169,5 +181,5 @@ class ThemeSupports {
 			add_image_size( 'mediagallery_thumbnail', 320, 180, array( 'center', 'bottom' ) );
 		};
 		add_action( 'after_setup_theme', $image_sizes );
-	}
-}
+	}//end add_image_size()
+}//end class

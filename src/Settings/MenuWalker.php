@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Расширяющий класс для Walker_Nav_Menu
  * Extending class for Walker_Nav_Menu
@@ -29,53 +30,57 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class MenuWalker extends \Walker_Nav_Menu {
+
 	/**
 	 * Запускает список до добавления элементов.
 	 * Runs through the list before items are added.
 	 *
 	 * @category Loader_Class
 	 * @package  EQUD
-	 * @param string   $output Используется для добавления дополнительного содержимого (передается по ссылке).
-	 * @param int      $depth  Глубина пункта меню. Используется для набивки.
-	 * @param stdClass $args   Объект аргументов wp_nav_menu().
+	 * @param    string   $output Используется для добавления дополнительного содержимого (передается по ссылке).
+	 * @param    integer  $depth  Глубина пункта меню. Используется для набивки.
+	 * @param    stdClass $args   Объект аргументов wp_nav_menu().
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
-		/**
+		/*
 		 * Классы, зависящие от глубины
 		 */
-		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // отступ кода.
-		$display_depth = ( $depth + 1 ); // Потому что он считает первое подменю равным 0.
-		$classes       = array(
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' );
+		// отступ кода.
+		$display_depth = ( $depth + 1 );
+		// Потому что он считает первое подменю равным 0.
+		$classes     = array(
 			'sub-menu',
 			( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
 			( $display_depth >= 2 ? 'sub-sub-menu' : '' ),
 			'menu-depth-' . $display_depth,
 		);
-		$class_names   = implode( ' ', $classes );
+		$class_names = implode( ' ', $classes );
 
 		// построить html.
 		$output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-	}
+	}//end start_lvl()
+
 
 	/**
 	 * Запускает вывод элемента.
 	 * Starts the output of an element.
 	 *
-	 * @see Walker::start_el()
+	 * @see   Walker::start_el()
 	 * @since 3.0.0
 	 *
 	 * @param string  $output            Используется для добавления дополнительного содержимого (передается по ссылке).
 	 * @param WP_POST $data_object       Объект элемента меню, подробнее ниже.
-	 * @param int     $depth             Уровень вложенности элемента меню.
+	 * @param integer $depth             Уровень вложенности элемента меню.
 	 * @param object  $args              Параметры функции wp_nav_menu.
-	 * @param int     $current_object_id По желанию. ID текущего пункта меню. По умолчанию 0.
+	 * @param integer $current_object_id По желанию. ID текущего пункта меню. По умолчанию 0.
 	 */
 	public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
-		/**
+		/*
 		 * Запускает вывод элемента.
 		 * Starts the output of an element.
 		 *
-		 * @var mixed     $wp_query
+		 * @var   mixed     $wp_query
 		 * @param object  $item Объект элемента меню, подробнее ниже.
 		 * @param int     $depth Уровень вложенности элемента меню.
 		 * @param object  $args Параметры функции wp_nav_menu
@@ -84,8 +89,8 @@ class MenuWalker extends \Walker_Nav_Menu {
 		// Restores the more descriptive, specific name for use within this method.
 		$item = $data_object;
 
-		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent.
-
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' );
+		// code indent.
 		// depth dependent classes.
 		$depth_classes     = array(
 			( $depth === 0 ? 'main-menu-item' : 'sub-menu-item' ),
@@ -108,8 +113,9 @@ class MenuWalker extends \Walker_Nav_Menu {
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
-		$attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
-
+		if ( $args->walker->has_children ) :
+			$attributes .= ' class="menu-link main-menu-link link-has-children"';
+		endif;
 		$item_output = sprintf(
 			'%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
 			$args->before,
@@ -122,5 +128,5 @@ class MenuWalker extends \Walker_Nav_Menu {
 
 		// build html.
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-}
+	}//end start_el()
+}//end class

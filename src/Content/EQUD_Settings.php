@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Файл с основными настройками темы.
  * File with basic theme settings.
@@ -30,6 +31,7 @@ use Carbon_Fields\Field;
  * @link     https://github.com/facejungle/equd
  */
 class EQUD_Settings {
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -37,7 +39,9 @@ class EQUD_Settings {
 	public function __construct() {
 		$this->crb_settings_page();
 		$this->equd_theme_page();
-	}
+	}//end __construct()
+
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
@@ -45,21 +49,21 @@ class EQUD_Settings {
 	private function equd_theme_page() {
 		add_action(
 			'admin_menu',
-			function() {
+			function () {
 				add_menu_page( __( 'EQUD theme tutorial and settings' ), __( 'EQUD theme' ), 'manage_options', 'equd-settings', '\EQUD\Content\EQUD_Settings::add_my_setting', 'dashicons-welcome-view-site', 2 );
 				add_submenu_page( 'equd-settings', 'Основное доп. меню', 'Мое основное меню', 'manage_options', 'equd-settings' );
 			}
 		);
-	}
+	}//end equd_theme_page()
+
+
 	/**
 	 * Автозагрузка класса.
 	 * Сlass autoload.
 	 */
 	private function crb_settings_page() {
-		$backend_fields = static function() {
-			Container::make( 'theme_options', __( 'Customize Background' ) )
-			->set_page_parent( 'equd-settings' )
-			->add_fields(
+		$backend_fields = static function () {
+			Container::make( 'theme_options', __( 'Customize Background' ) )->set_page_parent( 'equd-settings' )->add_fields(
 				array(
 					Field::make( 'color', 'crb_background_color', __( 'Background Color' ) ),
 					Field::make( 'image', 'crb_background_image', __( 'Background Image' ) ),
@@ -67,7 +71,9 @@ class EQUD_Settings {
 			);
 		};
 		add_action( 'carbon_fields_register_fields', $backend_fields );
-	}
+	}//end crb_settings_page()
+
+
 	public static function add_my_setting() {
 		?>
 		<div class="wrap">
@@ -75,5 +81,6 @@ class EQUD_Settings {
 			<p>Приветствую! На этой странице расположен пример как использовать сайт.</p>
 		</div>
 		<?php
-	}
-}
+	}//end add_my_setting()
+}//end class
+

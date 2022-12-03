@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы с формой регистрации.
  * Registration form page template.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Шаблон страницы одиночной записи.
  * Singular post page template.
@@ -15,11 +16,13 @@
 get_header(); ?>
 <main id="primary" class="site-main flex-column">
 	<?php \EQUD\Content\Tags::entry_header(); ?>
-	<main class="entry-main flex-row">
-		<?php
-		\EQUD\Content\Tags::sidebar();
-		get_template_part( 'templates/content', get_post_type() );
-		?>
+	<main class="entry-main">
+		<div class="wrapper container flex-row">
+			<?php
+			\EQUD\Content\Tags::sidebar();
+			get_template_part( 'templates/content', get_post_type() );
+			?>
+		</div>
 	</main>
 	<?php \EQUD\Content\Tags::entry_footer(); ?>
 </main>
