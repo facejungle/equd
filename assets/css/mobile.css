@@ -20,7 +20,7 @@ aside.sidebar {
 }
 
 .wrapper-grid>.posts-thumbs {
-    flex: 1 1 100% 1;
+    flex: 1 1 100%;
 }
 
 footer.site-footer {

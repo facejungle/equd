@@ -75,7 +75,7 @@ class ThemeSupports {
 			$GLOBALS['content_width'] = apply_filters( 'equd_content_width', 1520 );
 		};
 		add_action( 'after_setup_theme', $theme_supports );
-		/*
+		/**
 		 * Удаление префикса у архивов.
 		 * Removing the prefix from archives.
 		 */

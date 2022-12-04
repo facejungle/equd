@@ -1,5 +1,5 @@
 .wrapper-grid>.posts-thumbs {
-    flex: 1 1 40% 1;
+    flex: 1 1 40%;
 }
 
 header.entry-header {
@@ -18,7 +18,7 @@ header.entry-header.post-header>.entry-header__block>picture {
     }
 
     .wrapper-grid>.posts-thumbs {
-        flex: 1 1 100% 1;
+        flex: 1 1 100%;
     }
 
     footer.site-footer {
