@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Шаблон страниц категорий и архивов.
+ * Шаблон категорий и архивов.
  * Template for category and archive pages.
  *
  * PHP version 8.1
@@ -13,32 +12,44 @@
  * @link     https://github.com/facejungle/equd
  */
 
-		get_header(); ?>
-		<main id="primary" class="site-main flex-column">
-			<?php
-			\EQUD\Content\Tags::entry_header();
-			if ( is_category() && ! is_archive() ) {
-				$cat      = get_category( get_query_var( 'cat' ) );
-				$cat_slug = $cat->slug;
-
-				$locate_template = locate_template( "templates/category-$cat_slug.php" );
-				if ( $locate_template ) {
-					get_template_part( 'templates/category', $cat_slug );
+get_header(); ?>
+<main id="primary" class="site-main flex-column">
+	entry-header
+	<main class="entry-main">
+		<div class="wrapper container flex-row">
+			<?php get_sidebar(); ?>
+			<div class="wrapper-grid flex-row">
+				<?php
+				if (have_posts()) {
+					while (have_posts()) {
+						the_post();
+						if (is_category()) {
+							get_template_part('apps/taxonomies/categories/templates/archive', 'content');
+						} elseif (is_tax() && !is_category()) {
+							echo '</br>is tax no cat</br>';
+							$args = array(
+								'public' => true,
+								'_builtin' => false,
+							);
+							$tax_list = get_taxonomies($args);
+							foreach ($tax_list as $tax) {
+								$locate_template = locate_template("apps/taxonomies/$tax/templates/archive-content.php");
+								if ($locate_template) {
+									get_template_part("apps/taxonomies/$tax/templates/archive", 'content');
+								} else {
+									get_template_part('core/templates/archive', 'content');
+								}
+							}
+						}
+					}
 				} else {
-					get_template_part( 'templates/category' );
+					echo '</br>empty</br>';
 				}
-			} if ( is_archive() ) {
-				$post_types      = get_post_type();
-				$locate_template = locate_template( "templates/archive-$post_types.php" );
-				if ( $locate_template ) :
-					get_template_part( 'templates/archive', $post_types );
-				else :
-					get_template_part( 'templates/archive' );
-				endif;
-			}
-
-			\EQUD\Content\Tags::entry_footer();
-			?>
-		</main>
-		<?php
-		get_footer();
+				?>
+			</div>
+		</div>
+	</main>
+	entry-footer
+</main>
+<?php
+get_footer();

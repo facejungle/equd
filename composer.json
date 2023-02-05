@@ -2,10 +2,14 @@
     "name": "equd/theme",
     "description": "theme",
     "type": "wordpress-theme",
+    "require": {
+        "htmlburger/carbon-fields": "^3.3"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "EQUD\\": "src/"
+            "EQUD\\": "core/",
+            "EQUD\\apps\\": "apps/"
         }
     },
     "authors": [
@@ -19,6 +23,6 @@
     "minimum-stability": "dev",
     "config": {
         "process-timeout": 1800,
-        "vendor-dir": ""
+        "vendor-dir": "vendor/"
     }
 }

@@ -1,7 +1,5 @@
 <?php
-
 /**
- * Основной файл всех функций темы.
  * The main file of all theme functions.
  *
  * PHP version 8.1
@@ -15,29 +13,38 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( '_S_VERSION' ) ) {
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.1.0' );
 }
 
 if ( ! defined( 'EQUD_URL' ) ) {
 	define( 'EQUD_URL', get_template_directory_uri() );
 }
 
+if ( ! defined( 'EQUD_URL_CORE_CSS' ) ) {
+	define( 'EQUD_URL_CORE_CSS', EQUD_URL . '/core/assets/css/' );
+}
+if ( ! defined( 'EQUD_URL_CORE_JS' ) ) {
+	define( 'EQUD_URL_CORE_JS', EQUD_URL . '/core/assets/js/' );
+}
+if ( ! defined( 'EQUD_URL_CORE_IMG' ) ) {
+	define( 'EQUD_URL_CORE_IMG', EQUD_URL . '/core/assets/images/' );
+}
+
 if ( ! defined( 'EQUD_PATH' ) ) {
 	define( 'EQUD_PATH', get_template_directory() );
 }
 
-require_once EQUD_PATH . '/autoload.php';
+if ( ! defined( 'EQUD_PATH_CORE_CSS' ) ) {
+	define( 'EQUD_PATH_CORE_CSS', EQUD_PATH . '/core/assets/css/' );
+}
 
+if ( ! defined( 'EQUD_PATH_CORE_JS' ) ) {
+	define( 'EQUD_PATH_CORE_JS', EQUD_PATH . '/core/assets/js/' );
+}
 
-/**
- * Запуск проверки на зависимости.
- * Run a dependency check.
- */
-function run_check_depends() {
-	\EQUD\Loader::check_depends();
-}//end run_check_depends()
+if ( ! defined( 'EQUD_PATH_CORE_IMG' ) ) {
+	define( 'EQUD_PATH_CORE_IMG', EQUD_PATH . '/core/assets/image/' );
+}
 
-
-add_action( 'admin_init', 'run_check_depends' );
-
-new \EQUD\Loader();
+require_once EQUD_PATH . '/vendor/autoload.php';
+new \EQUD\config\Loader();

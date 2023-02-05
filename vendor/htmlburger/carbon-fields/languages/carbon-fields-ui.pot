@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: packages/core/fields/oembed/index.js:187
+msgid "An error occurred while trying to fetch oembed preview."
+msgstr ""
+
+#: packages/core/fields/oembed/index.js:202
+msgid "Not Found"
+msgstr ""

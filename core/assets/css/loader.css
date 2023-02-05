@@ -1,0 +1,225 @@
+:root {
+	display: block;
+	margin:  0;
+	padding: 0;
+	/*
+	FONTS
+	*/
+	--font_montserrat:       "Montserrat", verdana, sans-serif;
+	font-family:             var(--font_montserrat);
+	-webkit-font-smoothing:  subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering:          optimizelegibility;
+	/*
+	COLORS, BORDER & SHADOWS
+	*/
+	--color_main:  #006363;
+	--color_white: #FCFCFC;
+	--color_gray:  #CCC;
+	--color_black: #333;
+	--color_green: #CCC;
+
+	--color_black_trans0: rgba(0, 0, 0, 0.2);
+	--color_black_trans1: rgba(0, 0, 0, 0.4);
+	--color_black_trans2: rgba(0, 0, 0, 0.6);
+
+	--color0: #006363;
+	--color1: #006363;
+	--color2: #006363;
+	--color3: #006363;
+
+	--color0gray:  #F0F0F0;
+	--shadow_block:  0 8px 8px -8px rgba(0,0,0,.3);
+	--shadow_text:   0 3px 6px rgba(0,0,0,.5);
+	--shadowfix:     0 0 18px rgba(0,0,0,.3);
+	--shadowfixmini: 0 0 9px rgba(0,0,0,.3);
+	--border:        1px solid rgba(0,0,0,.2);
+	--ellipse:       50% 20% / 10% 40%;
+	/*
+	CALC
+	*/
+	--margin_calcs: 0px calc(20px + (50 + 50 * 0.7) * ((100vw - 720px) / 1920));
+	--pc:           var(--total_container_width);
+	--tablet:       991.98em;
+	--mobile:       767.98em;
+	--mobile_small: 479em;
+}
+@media only screen and (max-width: 480px) {
+	:root {
+		--padding25:             12.5px;
+		--padding50:             25px;
+		--padding100:            50px;
+		--margin_calc:           25px;
+		--max_width_container:   480px;
+		--total_container_width: calc( 100vw - ( var( --padding25 ) ) );
+	}
+}
+@media only screen and (min-width: 480px) and (max-width: 1367px) {
+	:root {
+		--target_width:          480;
+		--target_width_px:       380px;
+		--nominal_width:         1367;
+		--max_width_container:   1100px;
+		--total_container_width: calc(var(--max_width_container) + (var(--padding25) * 2));
+		--coefficient:           calc( ( 100vw - var( --target_width_px ) ) / ( var( --nominal_width ) - var( --target_width ) ) );
+		--padding25:             calc( ( var( --coefficient ) * 6 ) + 12.5px );
+		--padding50:             calc( ( var( --coefficient ) * 12.5 ) + 25px );
+		--padding100:            calc( ( var( --coefficient ) * 25 ) + 50px );
+		--margin_calc:           calc( ( var( --coefficient ) * 25 ) + 50px );
+	}
+}
+@media only screen and (min-width: 1367px) {
+	:root {
+		--target_width:          1367;
+		--target_width_px:       1367px;
+		--nominal_width:         1920;
+		--max_width_container:   1520px;
+		--total_container_width: calc(var(--max_width_container) + (var(--padding25) * 2));
+		--coefficient:           calc( ( 100vw - var( --target_width_px ) ) / ( var( --nominal_width ) - var( --target_width ) ) );
+		--padding25:             calc( (var( --coefficient ) * 6.5 ) + 18.5px );
+		--padding50:             calc( ( var( --coefficient ) * 12.5 ) + 37.5px );
+		--padding100:            calc( ( var( --coefficient ) * 25 ) + 75px );
+		--margin_calc:           calc( ( var( --coefficient ) * 50 ) + 150px );
+	}
+}
+@font-face {
+	font-size:    18px;
+	font-display: swap;
+	font-family:  "Montserrat", Verdana, sans-serif;
+	src:          local("Montserrat"), url("/wp-content/themes/equd/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+/* ----------> Scrollbar <---------- ---------- ---------- ---------- ----------> Scrollbar <---------- */
+::-webkit-scrollbar {
+	position:         absolute;
+	z-index:          48;
+	top:              0;
+	right:            0;
+	width:            8px;
+	height:           100%;
+	background-color: var(--color_white);
+}
+::-webkit-scrollbar-thumb {
+	position:         absolute;
+	z-index:          49;
+	top:              0;
+	left:             0;
+	width:            100%;
+	cursor:           pointer;
+	background-color: var(--color_green);
+	border-radius:    5px;
+}
+html {
+	background-color: var(--color0gray);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+.flex-column {
+	display:        flex;
+	flex-direction: column;
+}
+
+.flex-row {
+	display:        flex;
+	flex-direction: row;
+}
+
+.container {
+	max-width: var(--total_container_width);
+	margin:    auto;
+	padding:   0 var(--padding25);
+}
+.size-auto,  .size-full, .size-large, .size-medium, .size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+*,*::before,
+*::after {
+	box-sizing: border-box;
+}
+:focus, :active {
+	outline: none;
+}
+a:focus, a:active {
+	outline: none;
+}
+a, a:link, a:visited {
+	color: inherit;
+	text-decoration: none;
+	display: inline-block;
+}
+a:hover {
+	color: var(--color_black);
+	text-decoration: underline;
+}
+
+ul, ul li, li {
+	list-style: none;
+}
+ul li {
+	padding-left: var(--padding25);
+}
+h1 {
+	font-size: 1.5em;
+	font-weight: 500;
+}
+h2 {
+	font-size: 1.4em;
+}
+h3 {
+	font-size: 1.3em
+}
+p {
+	line-height: 1.3em;
+	text-align: justify;
+}
+img {
+	vertical-align: top;
+}
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+input, textarea, button, select {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+input::-ms-clear {
+	display: none;
+}
+button, input[type="submit"] {
+	display: inline-block;
+	box-shadow: none;
+	background-color: transparent;
+	background: none;
+	cursor: pointer;
+}
+input:focus, input:active,
+button:focus, button:active {
+	outline: none;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+label {
+	cursor: pointer;
+}
+legend {
+	display: block;
+}
+.sub-menu {
+	display: none;
+}

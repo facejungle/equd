@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Общий шаблон шапки сайта.
  * General site header template.
@@ -16,6 +15,7 @@
 defined( 'ABSPATH' ) || exit; ?>
 
 <!doctype html>
+
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1">
@@ -26,8 +26,9 @@ defined( 'ABSPATH' ) || exit; ?>
 	<html <?php language_attributes(); ?>>
 	<?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
-	<?php \EQUD\Content\Tags::wp_body_open(); ?>
+
 	<header id="head-top" class="site-header">
 		<div class="site-header__line flex-row">
 			<div class="site-logo">
@@ -44,7 +45,7 @@ defined( 'ABSPATH' ) || exit; ?>
 				?>
 			</div>
 			<div class="header-search">
-			<?php get_search_form(); ?>
+				<?php get_search_form(); ?>
 			</div>
 			<div class="menu-button">
 				<div class="bar"></div>
@@ -59,18 +60,18 @@ defined( 'ABSPATH' ) || exit; ?>
 					'theme_location' => 'top-menu',
 					'menu_id'        => 'top-menu',
 					'fallback_cb'    => '',
-					'walker'         => new \EQUD\Settings\MenuWalker(),
+					'walker'         => new \EQUD\config\MenuWalker(),
 				)
 			);
 			?>
-		<section class="toogle-menu">
-			<p>toogle</p>
-			<p>toogle</p>
-			<p>toogle</p>
-			<p>toogle</p>
-			<p>toogle</p>
-			<p>toogle</p>
-		</section>
+			<section class="toogle-menu">
+				<p>toogle</p>
+				<p>toogle</p>
+				<p>toogle</p>
+				<p>toogle</p>
+				<p>toogle</p>
+				<p>toogle</p>
+			</section>
 		</div>
 		<div class="site-header__line reserve flex-row"></div>
 	</header>

@@ -1,0 +1,28 @@
+.site-header__line>.menu-top-menu-container>ul#top-menu {
+	display: none;
+}
+
+.menu-button {
+	display: block;
+}
+
+header.entry-header {
+	flex-wrap: wrap;
+}
+
+header.entry-header.post-header>.entry-header__block:nth-of-type(2) {
+	margin-top: var(--padding25);
+	margin-left: 0;
+}
+
+aside.sidebar {
+	display: none;
+}
+
+.wrapper-grid>.posts-thumbs {
+	flex: 1 1 100%;
+}
+
+footer.site-footer {
+	display: none;
+}
