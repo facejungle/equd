@@ -10,6 +10,7 @@
  * @link    https://github.com/facejungle/equd
  */
 
+namespace EQUD;
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -21,13 +22,13 @@ if ( ! defined( 'EQUD_URL' ) ) {
 }
 
 if ( ! defined( 'EQUD_URL_CORE_CSS' ) ) {
-	define( 'EQUD_URL_CORE_CSS', EQUD_URL . '/core/assets/css/' );
+	define( 'EQUD_URL_CORE_CSS', EQUD_URL . '/assets/css/' );
 }
 if ( ! defined( 'EQUD_URL_CORE_JS' ) ) {
-	define( 'EQUD_URL_CORE_JS', EQUD_URL . '/core/assets/js/' );
+	define( 'EQUD_URL_CORE_JS', EQUD_URL . '/assets/js/' );
 }
 if ( ! defined( 'EQUD_URL_CORE_IMG' ) ) {
-	define( 'EQUD_URL_CORE_IMG', EQUD_URL . '/core/assets/images/' );
+	define( 'EQUD_URL_CORE_IMG', EQUD_URL . '/assets/images/' );
 }
 
 if ( ! defined( 'EQUD_PATH' ) ) {
@@ -35,15 +36,15 @@ if ( ! defined( 'EQUD_PATH' ) ) {
 }
 
 if ( ! defined( 'EQUD_PATH_CORE_CSS' ) ) {
-	define( 'EQUD_PATH_CORE_CSS', EQUD_PATH . '/core/assets/css/' );
+	define( 'EQUD_PATH_CORE_CSS', EQUD_PATH . '/assets/css/' );
 }
 
 if ( ! defined( 'EQUD_PATH_CORE_JS' ) ) {
-	define( 'EQUD_PATH_CORE_JS', EQUD_PATH . '/core/assets/js/' );
+	define( 'EQUD_PATH_CORE_JS', EQUD_PATH . '/assets/js/' );
 }
 
 if ( ! defined( 'EQUD_PATH_CORE_IMG' ) ) {
-	define( 'EQUD_PATH_CORE_IMG', EQUD_PATH . '/core/assets/image/' );
+	define( 'EQUD_PATH_CORE_IMG', EQUD_PATH . '/assets/image/' );
 }
 
 require_once EQUD_PATH . '/vendor/autoload.php';

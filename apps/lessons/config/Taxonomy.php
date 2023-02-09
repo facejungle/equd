@@ -73,7 +73,7 @@ class Taxonomy {
 		);
 	}
 	/**
-	 * Attach taxonomies to the "leassons" post type.
+	 * Attach taxonomies to the "lessons" post type.
 	 */
 	private function attach_tax() {
 		add_action(

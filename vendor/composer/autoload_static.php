@@ -158,20 +158,15 @@ class ComposerStaticInit49d27d375495b78eacca5a289167779e
         'Carbon_Fields\\Widget' => __DIR__ . '/..' . '/htmlburger/carbon-fields/core/Widget.php',
         'Carbon_Fields\\Widget\\Widget' => __DIR__ . '/..' . '/htmlburger/carbon-fields/core/Widget/Widget.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'EQUD\\apps\\lessons\\config\\CarbonFields' => __DIR__ . '/../..' . '/apps/lessons/config/CarbonFields.php',
-        'EQUD\\apps\\lessons\\config\\PostType' => __DIR__ . '/../..' . '/apps/lessons/config/PostType.php',
-        'EQUD\\apps\\lessons\\config\\Taxonomy' => __DIR__ . '/../..' . '/apps/lessons/config/Taxonomy.php',
-        'EQUD\\apps\\post\\config\\Customize' => __DIR__ . '/../..' . '/apps/post/config/Customize.php',
-        'EQUD\\apps\\taxonomies\\categories\\config\\Customize' => __DIR__ . '/../..' . '/apps/taxonomies/categories/config/Customize.php',
-        'EQUD\\apps\\taxonomies\\devices\\config\\Register' => __DIR__ . '/../..' . '/apps/taxonomies/devices/config/Register.php',
-        'EQUD\\apps\\taxonomies\\programs\\config\\Register' => __DIR__ . '/../..' . '/apps/taxonomies/programs/config/Register.php',
         'EQUD\\config\\AdminMenu' => __DIR__ . '/../..' . '/core/config/AdminMenu.php',
+        'EQUD\\config\\Get' => __DIR__ . '/../..' . '/core/config/Get.php',
         'EQUD\\config\\Loader' => __DIR__ . '/../..' . '/core/config/Loader.php',
         'EQUD\\config\\MenuWalker' => __DIR__ . '/../..' . '/core/config/MenuWalker.php',
         'EQUD\\config\\PostLink' => __DIR__ . '/../..' . '/core/config/PostLink.php',
         'EQUD\\config\\StyleScript' => __DIR__ . '/../..' . '/core/config/StyleScript.php',
         'EQUD\\config\\ThemeSupports' => __DIR__ . '/../..' . '/core/config/ThemeSupports.php',
         'EQUD\\templates\\Admin' => __DIR__ . '/../..' . '/core/templates/Admin.php',
+        'EQUD\\widgets\\EntryHeader' => __DIR__ . '/../..' . '/core/widgets/EntryHeader.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

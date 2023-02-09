@@ -29,29 +29,16 @@ class Loader {
 	 * Class autoload.
 	 */
 	public function __construct() {
-		 // Core: config
+		\Carbon_Fields\Carbon_Fields::boot();
+		// Core: config
 		new \EQUD\config\AdminMenu();
 		new \EQUD\config\ThemeSupports();
 		new \EQUD\config\StyleScript();
 
-		// Core: templates
-		new \EQUD\templates\Admin();
+      new \EQUD\src\AsyncStyleScript();
 
-		// Post type: post
+		new \EQUD\apps\devices\config\Register();
+		new \EQUD\apps\programs\config\Register();
 		new \EQUD\apps\post\config\Customize();
-
-		// Post type: lessons
-		new \EQUD\apps\lessons\config\Taxonomy();
-		new \EQUD\apps\lessons\config\PostType();
-		new \EQUD\apps\lessons\config\CarbonFields();
-
-		// Taxonomy: categories
-		new \EQUD\apps\taxonomies\categories\config\Customize();
-
-		// Taxonomy: devices
-		new \EQUD\apps\taxonomies\devices\config\Register();
-
-		// Taxonomy: programs
-		new \EQUD\apps\taxonomies\programs\config\Register();
 	}
 }

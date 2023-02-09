@@ -18,13 +18,14 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Class for basic theme settings: theme_supports, menu registration, file extension, image size.
  *
- * @category ThemeSupports class
+ * @category ThemeSupports
  * @package  EQUD
  * @author   Face Jungle <110752838+facejungle@users.noreply.github.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
 class ThemeSupports {
+
 
 
 	/**
@@ -71,7 +72,6 @@ class ThemeSupports {
 			$GLOBALS['content_width'] = apply_filters( 'equd_content_width', 1520 );
 		};
 		add_action( 'after_setup_theme', $theme_supports );
-
 	}
 
 	/**
@@ -95,7 +95,7 @@ class ThemeSupports {
 		$theme_menus = function () {
 			register_nav_menus(
 				array(
-					'top-menu'          => esc_html__( 'Top menu', 'equd' ),
+					'site-header-menu'  => esc_html__( 'Site header', 'equd' ),
 					'toggle-menu'       => esc_html__( 'Toggle menu', 'equd' ),
 					'footer-horizontal' => esc_html__( 'Footer horizontal', 'equd' ),
 					'footer-menu1'      => esc_html__( 'Footer menu 1', 'equd' ),
@@ -148,29 +148,17 @@ class ThemeSupports {
 			return array_merge(
 				$sizes,
 				array(
-					'post_thumbnail'         => __( 'post_thumbnail', 'equd' ),
-					'post_thumbnail_preview' => __( 'post_thumbnail_preview', 'equd' ),
-					'screenshot'             => __( 'screenshot', 'equd' ),
-					'mediagallery'           => __( 'mediagallery', 'equd' ),
-					'mediagallery_thumbnail' => __( 'mediagallery_thumbnail', 'equd' ),
+					'large'  => __( 'Large, max 1920x1080', 'equd' ),
+					'medium' => __( 'medium, max 1280x720', 'equd' ),
+					'small'  => __( 'small, max 480x480', 'equd' ),
 				)
 			);
 		};
 		add_filter( 'image_size_names_choose', $choose_image_sizes );
-		$image_sizes = static function ( $sizes ) {
-			add_image_size( 'rectangle_logo', 128, 64, array( 'center', 'center' ) );
-			add_image_size( 'squad_logo', 128, 128, array( 'center', 'center' ) );
-			add_image_size( 'post_image', 760, 380, array( 'center', 'bottom' ) );
-			add_image_size( 'post_image_thumb', 480, 380, array( 'center', 'bottom' ) );
-			add_image_size( 'gallery_image', 800, 450, array( 'center', 'bottom' ) );
-			add_image_size( 'gallery_image_thumb', 320, 180, array( 'center', 'bottom' ) );
-
-			add_image_size( 'post_thumbnail', 760, 380, array( 'center', 'bottom' ) );
-			add_image_size( 'post_thumbnail_preview', 480, 380, array( 'center', 'bottom' ) );
-
-			add_image_size( 'screenshot', 1600, 900, array( 'center', 'bottom' ) );
-			add_image_size( 'mediagallery', 800, 450, array( 'center', 'bottom' ) );
-			add_image_size( 'mediagallery_thumbnail', 320, 180, array( 'center', 'bottom' ) );
+		$image_sizes = static function () {
+			add_image_size( 'large', 1920, 1080, array( 'center', 'center' ) );
+			add_image_size( 'medium', 1280, 720, array( 'center', 'center' ) );
+			add_image_size( 'small', 480, 480, array( 'center', 'center' ) );
 		};
 		add_action( 'after_setup_theme', $image_sizes );
 	}

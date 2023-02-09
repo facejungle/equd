@@ -42,7 +42,7 @@ class AdminMenu {
 					_x( 'EQUD theme', 'admin menu, main theme settings link', 'equd' ),
 					'manage_options',
 					'equd-settings',
-					'\EQUD\templates\admin::main_page',
+					'\EQUD\pages\Admin::general_settings',
 					'dashicons-welcome-view-site',
 					2
 				);
@@ -61,7 +61,7 @@ class AdminMenu {
 					__( 'Taxonomies page', 'equd' ),
 					'manage_options',
 					'equd-taxonomies',
-					'\EQUD\templates\admin::main_page',
+					'\EQUD\pages\Admin::general_settings',
 					2
 				);
 			}
