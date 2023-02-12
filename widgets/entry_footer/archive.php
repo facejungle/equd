@@ -1,0 +1,1 @@
+core->widgets->entry-footer-archive
