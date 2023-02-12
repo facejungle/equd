@@ -13,7 +13,7 @@
 
 ## Features:
 ### equd_content
-> (require "Carbon fields")
+> (require "Carbon fields")[^equd_content]
 ### dynamic_adaptive
 > (https://github.com/FreelancerLifeStyle/dynamic_adapt) with menu walker
 ### dynamic_style
@@ -22,6 +22,8 @@
 > (with loadCSS)
 ### post_link
 > (edit post link for custom "post types")
+
+[^equd_content]: dsdsdsads.
 
 - - - 
 
@@ -38,8 +40,46 @@
     - desc category
   - Tag
 
+### Template
+```html
+<head>
+<!-- wp_head() -->
+</head>
+<body>
+  <!-- wp_body_open() -->
+  <header id="head-top" class="site-header">
+    <div class="site-header__line flex-row">
+    <div class="site-header__line"></div>
+    <div class="site-header__line reserve flex-row"></div>
+  </header>
+  <main id="primary" class="site-main flex-column">
+    <!-- header.entry-header -->
+    <main class="entry-main">
+      <div class="wrapper container flex-row">
+        <!-- aside.sidebar -->
+        <!-- article.$post_type || div.wrapper_grid -->
+      </div>
+    </main>
+    <!-- header.entry-footer -->
+  </main>
+  <footer id="colophon" class="site-footer">
+    <div class="site-footer__line"></div>
+    <div class="site-footer__line flex-row"></div>
+    <div class="site-footer__line"></div>
+  </footer>
+  <!-- wp_footer() -->
+  <!-- wp_body_close() -->
+</body>
+```
 
 ```php
+//theme hooks
+wp_body_open();
+wp_body_close();
+/**
+* @method async_style_script
+*/
 wp_enqueue_style_special();
 wp_enqueue_script_special();
 ```
+
