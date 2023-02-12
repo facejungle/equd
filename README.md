@@ -44,20 +44,12 @@
 
 
 - Post types:
-
 - - Page;
-
 - - - Desc page type;
-
 - - Post;
-
 - - - Desc post type;
-
 - Taxonomies:
-
 - - Category
-
-- - desc category
-
+- - - desc category
 - - Tag
 
