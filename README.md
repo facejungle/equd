@@ -23,6 +23,7 @@
 - post_link (edit post link for custom "post types")
 
 <h4>Entities:</h4>
+<h4>Entities:</h4>
 <ul>
   <li>Post types:</li>
   <ul>
@@ -35,10 +36,11 @@
     <ul>
       <li>lesson description</li>
     </ul>
-    <li>2</li>
   </ul>
   <li>Taxonomies:</li>
-  <li>Category</li>
+  <ul>
+    <li>Category</li>
+  </ul>
 </ul>
 
 - Attachment
