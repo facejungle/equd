@@ -18,14 +18,12 @@ get_header(); ?>
 <main id="primary" class="site-main flex-column">
 	<main class="entry-main">
 		<div class="wrapper container flex-row">
-			<div class="error-404 not-found default-max-width">
-				<div class="page-content">
+				<article class="page">
 					<p>
 						<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentytwentyone' ); ?>
 					</p>
 					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</div><!-- .error-404 -->
+				</article>
 		</div>
 	</main><!-- .entry-main -->
 </main><!-- .site-main -->
