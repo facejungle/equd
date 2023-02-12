@@ -1,0 +1,28 @@
+.wrapper-grid>.posts-thumbs {
+	flex: 1 1 40%;
+}
+
+header.entry-header {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+header.entry-header.post-header>.entry-header__block>picture {
+	max-width: var(--totalcontainerwidth);
+}
+
+@media only screen and (max-width: 770px) {
+
+	aside.sidebar {
+		display: none;
+	}
+
+	.wrapper-grid>.posts-thumbs {
+		flex: 1 1 100%;
+	}
+
+	footer.site-footer {
+		display: none;
+	}
+
+}
