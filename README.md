@@ -9,38 +9,7 @@
 ### Dynamic-adaptive style for PC, tablet & mobile
 
 
-> Description theme
-
-## Features:
-### equd_content
-> (require "Carbon fields")[^equd_content]
-### dynamic_adaptive
-> (https://github.com/FreelancerLifeStyle/dynamic_adapt) with menu walker
-### dynamic_style
-> (CSS reset, root variables, calculate)
-### async_style_script
-> (with loadCSS)
-### post_link
-> (edit post link for custom "post types")
-
-[^equd_content]: dsdsdsads.
-
-- - - 
-
-## Entities:
-
-- Post types:
-  - Page;
-    - Desc page type;
-  - Post;
-    - Desc post type;
-
-- Taxonomies:
-  - Category
-    - desc category
-  - Tag
-
-### Template
+### General template
 ```html
 <head>
 <!-- wp_head() -->
@@ -72,6 +41,35 @@
 </body>
 ```
 
+## Features:
+### equd_content
+> (require "Carbon fields[^carbon_fields]")
+### dynamic_adaptive
+> Use "dynamic adaptive[^dynamicAdapt]" javascript library with extends class menu walker
+### dynamic_style
+> (CSS reset, root variables, calculate)
+### async_style_script
+> (with loadCSS)
+### post_link
+> (edit post link for custom "post types")
+
+
+
+- - - 
+
+## Entities:
+
+- Post types:
+  - Page;
+    - Desc page type;
+  - Post;
+    - Desc post type;
+
+- Taxonomies:
+  - Category
+    - desc category
+  - Tag
+
 ```php
 //theme hooks
 wp_body_open();
@@ -83,3 +81,5 @@ wp_enqueue_style_special();
 wp_enqueue_script_special();
 ```
 
+[^carbon_fields]: [Carbon Fields](https://github.com/htmlburger/carbon-fields)
+[^dynamicAdapt]: [dynamicAdapt](https://github.com/FreelancerLifeStyle/dynamic_adapt)
