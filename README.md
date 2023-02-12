@@ -20,42 +20,44 @@
 
 - async_style_script (with loadCSS)
 
-- post_link (edit "post type" links)
+- post_link (edit post link for custom "post types")
 
-<h4>Post types:</h4>
-
-- Posts
-
-- News
-
-- Lessons
-
-- Documentation
-
-<h4>Taxonomies:</h4>
-
-- Categories (hierarchical)
-
-- Devices (flat)
-
-- Programs (flat)
-
-<h5>Additional taxonomies:</h5>
-
-- Difficulty lessons (flat)
-
+<h4>Entities:</h4>
 <ul>
-  <li>1</li>
-  <li>1</li>
+  <li>Post types:</li>
   <ul>
-    <li>2</li>
-    <li>2</li>
+    <li>Page</li>
+    <li>Post</li>
     <ul>
-      <li>3</li>
-      <li>3</li>
+      <li>post description</li>
+    </ul>
+    <li>Lesson</li>
+    <ul>
+      <li>lesson description</li>
     </ul>
     <li>2</li>
   </ul>
-  <li>1</li>
-  <li>1</li>
+  <li>Taxonomies:</li>
+  <li>Category</li>
 </ul>
+
+- Attachment
+
+- Author
+
+- Category
+
+- Date
+
+- Devices
+
+- Lesson
+
+- Page
+
+- Post
+
+- Program
+
+- Tag
+
