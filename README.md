@@ -36,4 +36,8 @@
     - desc category
   - Tag
 
-<p>Please don't use any <code>--font-size: 18px;</code> tags.</p>
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
