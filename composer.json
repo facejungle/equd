@@ -8,8 +8,9 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "EQUD\\": "core/",
-            "EQUD\\apps\\": "apps/"
+            "EQUD\\app\\": "app/",
+            "EQUD\\entities\\": "entities/",
+            "": "features/"
         }
     },
     "authors": [
