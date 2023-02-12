@@ -22,34 +22,19 @@
 
 - post_link (edit post link for custom "post types")
 
-<h4>Entities:</h4>
-<ul>
-  <li>Post types:</li>
-  <ul>
-    <li>Page</li>
-    <li>Post</li>
-    <ul>
-      <li>post description</li>
-    </ul>
-    <li>Lesson</li>
-    <ul>
-      <li>lesson description</li>
-    </ul>
-  </ul>
-  <li>Taxonomies:</li>
-  <ul>
-    <li>Category</li>
-  </ul>
-</ul>
-
 
 - Post types:
+
   - Page;
     - Desc page type;
+
   - Post;
     - Desc post type;
+
 - Taxonomies:
+
   - Category
     - desc category
+
   - Tag
 
