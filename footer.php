@@ -37,5 +37,6 @@ defined( 'ABSPATH' ) || exit; ?>
 			</div>
 		</footer><!-- #colophon -->
 		<?php wp_footer(); ?>
+		<?php do_action('wp_body_close'); ?>
 	</body>
 </html>
