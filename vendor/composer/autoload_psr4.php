@@ -6,7 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'EQUD\\apps\\' => array($baseDir . '/apps'),
-    'EQUD\\' => array($baseDir . '/core'),
+    'EQUD\\entities\\' => array($baseDir . '/entities'),
+    'EQUD\\app\\' => array($baseDir . '/app'),
     'Carbon_Fields\\' => array($vendorDir . '/htmlburger/carbon-fields/core'),
+    '' => array($baseDir . '/features'),
 );

@@ -9,8 +9,8 @@ class ComposerStaticInit49d27d375495b78eacca5a289167779e
     public static $prefixLengthsPsr4 = array (
         'E' => 
         array (
-            'EQUD\\apps\\' => 10,
-            'EQUD\\' => 5,
+            'EQUD\\entities\\' => 14,
+            'EQUD\\app\\' => 9,
         ),
         'C' => 
         array (
@@ -19,18 +19,22 @@ class ComposerStaticInit49d27d375495b78eacca5a289167779e
     );
 
     public static $prefixDirsPsr4 = array (
-        'EQUD\\apps\\' => 
+        'EQUD\\entities\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/apps',
+            0 => __DIR__ . '/../..' . '/entities',
         ),
-        'EQUD\\' => 
+        'EQUD\\app\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/core',
+            0 => __DIR__ . '/../..' . '/app',
         ),
         'Carbon_Fields\\' => 
         array (
             0 => __DIR__ . '/..' . '/htmlburger/carbon-fields/core',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/features',
     );
 
     public static $classMap = array (
@@ -158,15 +162,25 @@ class ComposerStaticInit49d27d375495b78eacca5a289167779e
         'Carbon_Fields\\Widget' => __DIR__ . '/..' . '/htmlburger/carbon-fields/core/Widget.php',
         'Carbon_Fields\\Widget\\Widget' => __DIR__ . '/..' . '/htmlburger/carbon-fields/core/Widget/Widget.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'EQUD\\config\\AdminMenu' => __DIR__ . '/../..' . '/core/config/AdminMenu.php',
-        'EQUD\\config\\Get' => __DIR__ . '/../..' . '/core/config/Get.php',
-        'EQUD\\config\\Loader' => __DIR__ . '/../..' . '/core/config/Loader.php',
-        'EQUD\\config\\MenuWalker' => __DIR__ . '/../..' . '/core/config/MenuWalker.php',
-        'EQUD\\config\\PostLink' => __DIR__ . '/../..' . '/core/config/PostLink.php',
-        'EQUD\\config\\StyleScript' => __DIR__ . '/../..' . '/core/config/StyleScript.php',
-        'EQUD\\config\\ThemeSupports' => __DIR__ . '/../..' . '/core/config/ThemeSupports.php',
-        'EQUD\\templates\\Admin' => __DIR__ . '/../..' . '/core/templates/Admin.php',
-        'EQUD\\widgets\\EntryHeader' => __DIR__ . '/../..' . '/core/widgets/EntryHeader.php',
+        'EQUD\\app\\loader' => __DIR__ . '/../..' . '/app/loader.php',
+        'EQUD\\app\\style_script' => __DIR__ . '/../..' . '/app/style_script.php',
+        'EQUD\\app\\theme_supports' => __DIR__ . '/../..' . '/app/theme_supports.php',
+        'EQUD\\entities\\admin\\app\\menu' => __DIR__ . '/../..' . '/entities/admin/app/menu.php',
+        'EQUD\\entities\\post\\app\\config' => __DIR__ . '/../..' . '/entities/post/app/config.php',
+        'EQUD\\entities\\post\\app\\loader' => __DIR__ . '/../..' . '/entities/post/app/loader.php',
+        'async_style_script' => __DIR__ . '/../..' . '/features/async_style_script.php',
+        'dynamic_style' => __DIR__ . '/../..' . '/features/dynamic_style.php',
+        'equd_content\\equd_content' => __DIR__ . '/../..' . '/features/equd_content/equd_content.php',
+        'equd_content\\fields\\code' => __DIR__ . '/../..' . '/features/equd_content/fields/code.php',
+        'equd_content\\fields\\fields_interface' => __DIR__ . '/../..' . '/features/equd_content/fields/fields_interface.php',
+        'equd_content\\models\\crb_block' => __DIR__ . '/../..' . '/features/equd_content/models/crb_block.php',
+        'equd_content\\models\\crb_blocks' => __DIR__ . '/../..' . '/features/equd_content/models/crb_blocks.php',
+        'equd_content\\models\\crb_container' => __DIR__ . '/../..' . '/features/equd_content/models/crb_container.php',
+        'equd_content\\models\\crb_containers' => __DIR__ . '/../..' . '/features/equd_content/models/crb_containers.php',
+        'equd_content\\models\\crb_fields' => __DIR__ . '/../..' . '/features/equd_content/models/crb_fields.php',
+        'equd_content\\models\\models_interface' => __DIR__ . '/../..' . '/features/equd_content/models/models_interface.php',
+        'loadCSS\\init' => __DIR__ . '/../..' . '/features/loadCSS/init.php',
+        'post_link' => __DIR__ . '/../..' . '/features/post_link.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -174,6 +188,7 @@ class ComposerStaticInit49d27d375495b78eacca5a289167779e
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit49d27d375495b78eacca5a289167779e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit49d27d375495b78eacca5a289167779e::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit49d27d375495b78eacca5a289167779e::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInit49d27d375495b78eacca5a289167779e::$classMap;
 
         }, null, ClassLoader::class);
