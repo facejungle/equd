@@ -6,11 +6,12 @@
 ![dynamicAdapt](https://img.shields.io/badge/dynamicAdapt-2022-green)
 
 ## Created with "Carbon fields" and custom features
-## Dynamic-adaptive style for PC, tablet & mobile
+### Dynamic-adaptive style for PC, tablet & mobile
 
-* * *
+> Description theme
 
 ## Features:
+------
 ### equd_content
   * (require "Carbon fields")
 <pre>
