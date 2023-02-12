@@ -23,7 +23,6 @@
 - post_link (edit post link for custom "post types")
 
 <h4>Entities:</h4>
-<h4>Entities:</h4>
 <ul>
   <li>Post types:</li>
   <ul>
@@ -43,23 +42,22 @@
   </ul>
 </ul>
 
-- Attachment
 
-- Author
+- Post types:
 
-- Category
+- - Page;
 
-- Date
+- - - Desc page type;
 
-- Devices
+- - Post;
 
-- Lesson
+- - - Desc post type;
 
-- Page
+- Taxonomies:
 
-- Post
+- - Category
 
-- Program
+- - desc category
 
-- Tag
+- - Tag
 
