@@ -1,1 +1,0 @@
-core->widgets->entry-header-archive
