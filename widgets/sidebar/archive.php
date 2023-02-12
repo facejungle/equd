@@ -12,7 +12,7 @@
  */
 ?>
 
-<aside>
+<aside class="sidebar archive flex-column">
    <?php
 	dynamic_sidebar( 'archive_sidebar' );
 	?>

@@ -239,11 +239,16 @@ class dynamic_style {
 			-webkit-text-size-adjust: 100%; /* 2 */
 			-ms-text-size-adjust: 100%; /* 2 */
 		 }
+		 a {
+			color: #333;
+			text-decoration: none;
+		 }
 		 a:focus {
 			outline: thin dotted;
 		 }
 		 a:active,
 		 a:hover {
+			text-decoration: underline;
 			outline: 0;
 		 }
 		 img {

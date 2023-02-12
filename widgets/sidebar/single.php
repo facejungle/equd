@@ -12,7 +12,7 @@
  */
 ?>
 
-<aside>
+<aside class="sidebar single flex-column">
    <?php
 	dynamic_sidebar( 'singular_sidebar' );
 	?>
