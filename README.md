@@ -8,29 +8,24 @@
 ## Created with "Carbon fields" and custom features
 ### Dynamic-adaptive style for PC, tablet & mobile
 
+
 > Description theme
 
 ## Features:
-------
 ### equd_content
-  * (require "Carbon fields")
-<pre>
-  <code>
-    wp_enqueue_style_special();
-    wp_enqueue_script_special();
-  </code>
-</pre>
+> (require "Carbon fields")
 ### dynamic_adaptive
-  * (https://github.com/FreelancerLifeStyle/dynamic_adapt) with menu walker
+> (https://github.com/FreelancerLifeStyle/dynamic_adapt) with menu walker
 ### dynamic_style
-  * (CSS reset, root variables, calculate)
+> (CSS reset, root variables, calculate)
 ### async_style_script
-  * (with loadCSS)
+> (with loadCSS)
 ### post_link
-  * (edit post link for custom "post types")
+> (edit post link for custom "post types")
+
 - - - 
 
-### Entities:
+## Entities:
 
 - Post types:
   - Page;
@@ -42,3 +37,9 @@
   - Category
     - desc category
   - Tag
+
+
+```php
+wp_enqueue_style_special();
+wp_enqueue_script_special();
+```
