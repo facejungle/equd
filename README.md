@@ -22,6 +22,7 @@
 
 - post_link (edit post link for custom "post types")
 
+<h4>Entities:</h4>
 
 - Post types:
 
