@@ -1,9 +1,10 @@
-![PHP](https://img.shields.io/badge/PHP-8.2.1-green)
-![WordPress](https://img.shields.io/badge/WordPress-6.1.1-green)
+![PHP](https://img.shields.io/badge/PHP-8.2.1-green?style=flat-square&logo=php)
+![WordPress](https://img.shields.io/badge/WordPress-6.1.1-green?style=flat-square&logo=wordpress)
 
-![CarbonFields](https://img.shields.io/badge/Carbon%20Fields-3.4.0-green)
-![loadCSS](https://img.shields.io/badge/loadCSS-2.0.1-green)
-![dynamicAdapt](https://img.shields.io/badge/dynamicAdapt-2022-green)
+![CarbonFields](https://img.shields.io/badge/Carbon%20Fields-3.4.0-green?style=social&logo=wordpress)
+
+![loadCSS](https://img.shields.io/badge/loadCSS-2.0.1-green?style=social&logo=javascript)
+![dynamicAdapt](https://img.shields.io/badge/dynamicAdapt-2022-green?style=social&logo=javascript)
 
 ## Created with "Carbon fields" and custom features
 ### Dynamic-adaptive style for PC, tablet & mobile
@@ -24,7 +25,7 @@
   <main id="primary" class="site-main flex-column">
     <!-- header.entry-header -->
     <main class="entry-main">
-      <div class="wrapper container flex-row">
+      <div class="container wrapper flex-row">
         <!-- aside.sidebar -->
         <!-- article.$post_type || div.wrapper_grid -->
       </div>
@@ -45,7 +46,7 @@
 ### equd_content
 > (require "Carbon fields[^carbon_fields]")
 ### dynamic_adaptive
-> Use "dynamic adaptive[^dynamicAdapt]" javascript library with extends class menu walker
+> Use "dynamic adaptive[^dynamicAdapt]" javascript library and extend class menu walker
 ### dynamic_style
 > (CSS reset, root variables, calculate)
 ### async_style_script
