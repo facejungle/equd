@@ -13,6 +13,12 @@
 ## Features:
 ### equd_content
   * (require "Carbon fields")
+<pre>
+  <code>
+    wp_enqueue_style_special();
+    wp_enqueue_script_special();
+  </code>
+</pre>
 ### dynamic_adaptive
   * (https://github.com/FreelancerLifeStyle/dynamic_adapt) with menu walker
 ### dynamic_style
@@ -35,9 +41,3 @@
   - Category
     - desc category
   - Tag
-
-Here is an example of AppleScript:
-
-    tell application "Foo"
-        beep
-    end tell
