@@ -65,5 +65,6 @@ defined( 'ABSPATH' ) || exit; ?>
 			);
 			?>
 		</div>
-		<div class="site-header__line reserve flex-row"></div>
+		<div class="site-header__line flex-row reserve">3</div>
+		<div class="site-header__line flex-row reserve">3</div>
 	</header>

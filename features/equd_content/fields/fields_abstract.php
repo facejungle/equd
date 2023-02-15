@@ -13,8 +13,6 @@
 
 namespace equd_content\fields;
 
-use equd_content\models\models_interface;
-
 defined('ABSPATH') || exit;
 
 /**
@@ -28,12 +26,11 @@ defined('ABSPATH') || exit;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-abstract class fields_abstract implements models_interface
+abstract class fields_abstract
 {
    public static $field;
    public static $field_type;
    public static $field_slug;
    public static $field_label;
-   abstract static function create_fields_from_array();
-
+   abstract static function get_field();
 }

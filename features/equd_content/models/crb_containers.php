@@ -31,18 +31,20 @@ use Carbon_Fields\Field;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-class crb_containers implements models_interface{
-   public static function add_model_for_posts(string $post_type, array $fields) {
+class crb_containers implements models_interface
+{
+   public static function add_model_for_posts(string $post_type, array $fields)
+   {
       $button_add_container = array(
-         'plural_name'   => __('containers', 'equd'),
+         'plural_name' => __('containers', 'equd'),
          'singular_name' => __('container', 'equd'),
       );
       $button_add_block = array(
-         'plural_name'   => __('container blocks', 'equd'),
+         'plural_name' => __('container blocks', 'equd'),
          'singular_name' => __('container block', 'equd'),
       );
       $button_add_block_element = array(
-         'plural_name'   => __('Block elements', 'equd'),
+         'plural_name' => __('Block elements', 'equd'),
          'singular_name' => __('Block element', 'equd'),
       );
       Container::make('post_meta', __("Content for $post_type", 'equd'))
@@ -81,16 +83,12 @@ class crb_containers implements models_interface{
                                              ->set_attribute('placeholder', __('Subtitle', 'equd')),
                                        )
                                     )
-                                    ->add_fields(
-                                       'content_block_text',
-                                       __('Text', 'equd'),
+                                    ->add_fields('content_block_text', __('Text', 'equd'),
                                        array(
                                           Field::make('textarea', 'content_block_text_elem', __('Text')),
                                        )
                                     )
-                                    ->add_fields(
-                                       'content_block_code',
-                                       __('Code', 'equd'),
+                                    ->add_fields('content_block_code',__('Code', 'equd'),
                                        array(
                                           Field::make('textarea', 'content_block_code_elem', __('Code')),
                                        )
@@ -125,7 +123,8 @@ class crb_containers implements models_interface{
             )
          );
    }
-   public function get_model(){
+   public function get_model()
+   {
 
    }
 }

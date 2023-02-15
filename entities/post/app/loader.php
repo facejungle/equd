@@ -25,6 +25,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class loader {
    public function __construct(){
-      new config();
+      $config = new config();
+      $config->attach_tax();
    }
 }

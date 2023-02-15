@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit; ?>
 			<div class="site-footer__line">
 				<?php wp_nav_menu( array( 'theme_location' => 'footer-horizontal', 'menu_id' => 'footer-horizontal', ) ); ?>
 			</div>
-			<div class="site-footer__line nav flex-row">
+			<div class="site-footer__line flex-row">
 				<?php
 				wp_nav_menu( array( 'theme_location' => 'footer-menu1', 'menu_id' => 'footer-menu1', ) );
 				wp_nav_menu( array( 'theme_location' => 'footer-menu2', 'menu_id' => 'footer-menu2', ) );
@@ -33,9 +33,9 @@ defined( 'ABSPATH' ) || exit; ?>
 					// translators: 1: Theme name, 2: Theme author.
 					printf( esc_html__( 'Theme: %1$s by %2$s.', 'equd' ), 'equd', '<a href="https://github.com/facejungle">face jungle ;c</a>' );
 					?>
-				</div><!-- .site-info -->
+				</div>
 			</div>
-		</footer><!-- #colophon -->
+		</footer>
 		<?php wp_footer(); ?>
 		<?php do_action('wp_body_close'); ?>
 	</body>

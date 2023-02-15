@@ -13,5 +13,5 @@
 ?>
 
 <header class="entry-header single">
-   core->apps->post->widgets->entry-header-single
+   widgets->entry-header-single
 </header>

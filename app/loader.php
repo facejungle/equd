@@ -37,7 +37,8 @@ class loader {
 		new \loadCSS\init();
 		new \dynamic_style();
 		new \async_style_script();
-		
+		new \equd_content\equd_content();
+
 		new \EQUD\entities\post\app\loader();
 	}
 }

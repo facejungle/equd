@@ -37,64 +37,63 @@ class crb_fields implements models_interface
    public static function add_model_for_posts(string $post_type, string|array $fields = 'all')
    {
       if (is_array($fields)) {
-         // Добавляем контейнер для $post_type со списком полей им массива.
-         self::create_fields_from_array($post_type, $fields);
+         // Add a container for $post_type with a list of fields from the collected array using make_array_fields()
+         Container::make('post_meta', __("Content for $post_type", 'equd'))
+         ->show_on_post_type($post_type)
+         ->add_fields(
+            self::make_array_fields($fields)
+         );
       } elseif (is_string($fields)) {
          // Добавляем контейнер для $post_type с одним полем.
-         self::create_fields_from_string($post_type, $fields);
+         if ($fields == 'title') {
+            $field_model = new fields\title;
+            self::create_container_with_field($field_model, $post_type);
+            self::view_model_for_posts($post_type);
+         }
+         if ($fields == 'text') {
+            $field_model = new fields\text;
+            self::create_container_with_field($field_model, $post_type);
+         }
+         if ($fields == 'code') {
+            $field_model = new fields\code;
+            self::create_container_with_field($field_model, $post_type);
+         }
       }
    }
-   public static function get_array_fields($fields){
+   public static function view_model_for_posts(string $post_type, string|array $fields = 'all')
+   {
+      if(is_single() || is_singular()){
+         global $post;
+         if($post->post_type === $post_type){
+            add_action('equd_content', require(EQUD_PATH_FEATURES . 'equd_content/templates/fields.php'));
+         }
+      }
+   }
+   public static function create_container_with_field(fields_abstract $field_model, string $post_type)
+   {
+      Container::make('post_meta', 'equd_fields_container', __("Content for $post_type", 'equd'))
+      ->show_on_post_type($post_type)
+      ->add_fields(
+         array($field_model::get_field())
+      );
+   }
+   public static function make_array_fields($fields)
+   {
       $array_fields = array();
       foreach ($fields as $key => $field) {
-         if($field === 'title'){
-            $model = fields\title::create_fields_from_array();
-            $field_type = $model[0];
-            $field_slug = $model[1];
-            $field_label = $model[2];
-            $field = Field::make($field_type, $field_slug, __($field_label));
+         if ($field === 'title') {
+            $field = fields\title::get_field();
             array_push($array_fields, $field);
          }
-         if($field === 'text'){
-            $model = fields\text::create_fields_from_array();
-            $field_type = $model[0];
-            $field_slug = $model[1];
-            $field_label = $model[2];
-            $field = Field::make($field_type, $field_slug, __($field_label));
+         if ($field === 'text') {
+            $field = fields\text::get_field();
             array_push($array_fields, $field);
          }
-         if($field === 'code'){
-            $model = fields\code::create_fields_from_array();
-            $field_type = $model[0];
-            $field_slug = $model[1];
-            $field_label = $model[2];
-            $field = Field::make($field_type, $field_slug, __($field_label));
+         if ($field === 'code') {
+            $field = fields\code::get_field();
             array_push($array_fields, $field);
          }
       }
       return $array_fields;
-   }
-   public static function create_fields_from_array(string $post_type, array $fields)
-   {
-      Container::make('post_meta', __("Content for $post_type", 'equd'))
-         ->show_on_post_type($post_type)
-         ->add_fields(
-            self::get_array_fields($fields)
-         );
-   }
-   public static function create_fields_from_string(string $post_type, string $fields)
-   {
-      if ($fields == 'title') {
-         $title = new fields\title;
-         $title::add_model_for_posts($post_type, $fields);
-      }
-      if ($fields == 'text') {
-         $text = new fields\text;
-         $text::add_model_for_posts($post_type, $fields);
-      }
-      if ($fields == 'code') {
-         $code = new fields\code;
-         $code::add_model_for_posts($post_type, $fields);
-      }
    }
 }

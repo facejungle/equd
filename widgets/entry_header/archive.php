@@ -13,5 +13,5 @@
 ?>
 
 <header class="entry-header archive">
-   core->widgets->entry-header-archive
+   widgets->entry-header-archive
 </header>

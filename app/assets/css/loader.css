@@ -67,13 +67,8 @@ ____________________________________________________
 ____________________________________________________
 
 */
-
 .site-header {
 	width: 100%;
-}
-
-.site-header.sticky {
-	position: fixed;
 }
 
 .site-header>.site-header__line {
@@ -103,6 +98,7 @@ ____________________________________________________
 	padding: 0;
 	gap: 0;
 }
+
 .site-header__line>.header-search {
 	flex: 1 1 auto;
 }
@@ -110,14 +106,17 @@ ____________________________________________________
 .site-header .menu-site-header-container {
 	height: auto;
 }
+
 .site-header ul.menu {
 	display: flex;
 }
-.site-header ul.menu > li > a{
+
+.site-header ul.menu>li>a {
 	display: block;
 	padding: var(--padding25);
 	color: var(--color_white);
 }
+
 /* 
 ____________________________________________________
 
@@ -168,11 +167,12 @@ ____________________________________________________
 	width: 30px;
 	height: 3px;
 	margin: 10px auto;
-	transition: transform .4s, background-color .2s 0s ease-out;;
+	transition: transform .4s, background-color .2s 0s ease-out;
+	;
 	background-color: var(--color_white);
 }
 
-.menu-button:hover .bar{
+.menu-button:hover .bar {
 	background-color: var(--color_dynamic);
 }
 
@@ -211,6 +211,7 @@ ____________________________________________________
 .cross:hover .bar:nth-of-type(3) {
 	transform: translatey(-13.5px) rotate(40.5deg);
 }
+
 /* 
 ____________________________________________________
 
@@ -228,24 +229,62 @@ main.entry-main {
 	flex: 1 1 auto;
 	background-color: var(--color_white);
 }
-.wrapper {
+
+.container {
 	height: 100%;
 }
+
 article.page,
 article.post,
-.wrapper-grid {
+article.archive {
+	flex: 1 1 100%;
 	display: flex;
 	flex-direction: column;
 	padding: var(--padding25);
 	gap: var(--padding25);
 }
 
-aside.sidebar{
+.post-content {
+	flex: 1 1 100%;
+	gap: var(--padding25);
+}
+
+.archive-grid {
+	flex: 1 1 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--padding25);
+}
+
+section.post-preview {
+	flex: 0 1 30%;
+}
+section.post-preview>a {
+	height: 300px;
+	position: relative;
+}
+section.post-preview>a>img {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	z-index: 1;
+}
+
+section.post-preview>a>.post-preview__title,
+section.post-preview>a>p {
+	position: relative;
+	padding: 5px;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 2;
+}
+aside.sidebar {
 	border-right: var(--border);
 	padding: var(--padding25);
 	gap: var(--padding25);
 	flex: 0 0 15%;
 }
+
 /* 
 ____________________________________________________
 

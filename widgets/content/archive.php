@@ -11,12 +11,30 @@
  * @link     https://github.com/facejungle/equd
  */
 ?>
-
-<div class="wrapper-grid flex-row">
-	<section class="posts-thumbs flex-column">
-			\EQUD\Content\Tags::post_thumbnail();
-			<?php
-			the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><div class="posts-thumbs__title"><h2 class="entry-title">', '</h2></div></a>' );
+<article class="archive flex-column">
+	<?php
+	locate_template('widgets/entry_header/archive.php', true);
+	?>
+	<div class="archive-grid flex-row">
+		<?php
+		while (have_posts()) {
+			the_post();
 			?>
-	</section>
-</div>
+			<section class="post-preview flex-column <?php echo tag_escape(get_post_type()); ?>">
+				<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
+				<?php
+				echo get_the_post_thumbnail($post, 'size_small');
+				the_title('<div class="post-preview__title"><h2 class="entry-title">', '</h2></div>');
+				the_excerpt();
+				
+				?>
+				</a>
+			</section>
+		<?php
+		}
+		?>
+	</div>
+	<?php
+	locate_template('widgets/entry_footer/archive.php', true);
+	?>
+</article>

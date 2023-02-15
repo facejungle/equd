@@ -1,1 +1,3 @@
-core->widgets->entry-footer-single
+<footer class="entry-footer single">
+   widgets->entry-footer-single
+</footer>

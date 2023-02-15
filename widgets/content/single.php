@@ -13,9 +13,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php locate_template('widgets/entry_header/single.php', true); ?>
+	<div class="post-content flex-column">
+		<?php
+		the_content();
+		do_action('equd_content');
+		equd_content\equd_content::add_model_for_posts('post', 'block', array('title', 'text', 'code'));
+		?>
+	</div>
 	<?php
-	the_content();
-	
+	locate_template('widgets/entry_footer/single.php', true);
 	?>
 </article>
 <?php
