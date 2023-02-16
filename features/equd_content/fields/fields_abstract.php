@@ -28,9 +28,5 @@ defined('ABSPATH') || exit;
  */
 abstract class fields_abstract
 {
-   public static $field;
-   public static $field_type;
-   public static $field_slug;
-   public static $field_label;
-   abstract static function get_field();
+   abstract static function get_field(string $type, object $block = null);
 }

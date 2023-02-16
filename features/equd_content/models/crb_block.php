@@ -15,7 +15,6 @@ namespace equd_content\models;
 
 defined('ABSPATH') || exit;
 
-use equd_content\fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -32,64 +31,46 @@ use Carbon_Fields\Field;
  */
 class crb_block implements models_interface
 {
-   public static function add_model_for_posts(string $post_type, string|array $fields = 'all')
+   public $post_type;
+   public $fields;
+   public $meta;
+   public static $container;
+   public static $model_field;
+   public function add_model_for_posts(string $post_type, string|array $fields)
    {
-      Container::make('post_meta', 'equd_fields_container', __("Content for $post_type", 'equd'))
-         ->show_on_post_type($post_type)
-         ->add_fields(
-            array(
-               self::make_block($fields)
-            )
-         );
+      $this->post_type = $post_type;
+      $this->fields = $fields;
+      // Create a container and write the model to $container.
+      self::$container =
+         Container::make('post_meta', 'crb_block', __("Content for $this->post_type", 'equd'))
+            ->show_on_post_type($this->post_type);
+      $container = self::$container;
+
+      // Create a field model, add elements, and write the model to $model_field.
+      $model_field = $this->make_model_field($this->fields);
+
+      // Add the created field model to the container.
+      $container->add_fields(array($model_field));
+      return $container;
    }
-   public static function make_block($fields)
+   public function make_model_field(array|string $fields)
    {
       $button_add_block_element = array(
-         'plural_name' => __('Block elements', 'equd'),
-         'singular_name' => __('Block element', 'equd'),
+         'plural_name' => __('block elements', 'equd'),
+         'singular_name' => __('block element', 'equd'),
       );
-      $block =
+      self::$model_field =
          Field::make('complex', 'content_block_list', __('Block content list', 'equd'))
             ->setup_labels($button_add_block_element)
             ->set_layout('tabbed-vertical')
             ->help_text(__('#Content block', 'equd'));
-      foreach ($fields as $key => $field) {
-         if ($field === 'title') {
-            $block->add_fields(
-               'block__title',
-               __('Title', 'equd'),
-               array(
-                  fields\title::get_field()
-               )
-            );
-         } elseif ($field === 'text') {
-            $block->add_fields(
-               'block__text',
-               __('Text', 'equd'),
-               array(
-                  fields\text::get_field()
-               )
-            );
-         } elseif ($field === 'code') {
-            $block->add_fields(
-               'block__code',
-               __('Code', 'equd'),
-               array(
-                  fields\code::get_field()
-               )
-            );
-         }
-      }
-      return $block;
+      $model_field = self::$model_field;
+      $crb_fields = new crb_fields();
+      $model_field->add_fields($crb_fields->make_fields($fields, 'block', $model_field));
+      return $model_field;
    }
-
-   public static function view_model_for_posts(string $post_type, string|array $fields = 'all')
+   public function view_model()
    {
-      if(is_single() || is_singular()){
-         global $post;
-         if($post->post_type === $post_type){
-            add_action('equd_content', require(EQUD_PATH_FEATURES . 'equd_content/templates/block.php'));
-         }
-      }
+      require_once(EQUD_PATH_FEATURES . 'equd_content/templates/block.php');
    }
 }

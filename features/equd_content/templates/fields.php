@@ -1,6 +1,6 @@
 <?php
 /**
- * Templates for fields.
+ * Template for equd_content > crb_fields model.
  *
  * PHP version 8.1
  *
