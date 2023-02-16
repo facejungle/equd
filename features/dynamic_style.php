@@ -171,9 +171,31 @@ class dynamic_style {
 			margin: 0;
 			padding: 0;
 			border: 0;
-			font-size: 100%;
 			font: inherit;
 			vertical-align: baseline;
+		 }
+		 h6{
+			font-size: 1.1em;
+			line-height: 1.1em;
+		 }
+		 h5{
+			font-size: 1.2em;
+			line-height: 1.2em;
+		 }
+		 h4{
+			font-size: 1.3em;
+		 }
+		 h3{
+			font-size: 1.4em;
+			line-height: 1.4em;
+		 }
+		 h2{
+			font-size: 1.5em;
+			line-height: 1.5em;
+		 }
+		 h1{
+			font-size: 1.8em;
+			line-height: 1.8em;
 		 }
 		 :focus {
 			outline: 0;
