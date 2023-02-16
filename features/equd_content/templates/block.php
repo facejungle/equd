@@ -1,6 +1,6 @@
 <?php
 /**
- * Containers template
+ * Template for equd_content > crb_block model.
  *
  * PHP version 8.1
  *
@@ -10,7 +10,7 @@
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-
+global $post;
 $content_blocks = carbon_get_post_meta($post->ID, 'content_block_list');
 //print_r($content_blocks);
 if ($content_blocks) {
