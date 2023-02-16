@@ -17,8 +17,7 @@
 	<div class="post-content flex-column">
 		<?php
 		the_content();
-		do_action('equd_content');
-		equd_content\equd_content::add_model_for_posts('post', 'block', array('title', 'text', 'code'));
+		\EQUD\entities\post\app\config::$post_content->view_model();
 		?>
 	</div>
 	<?php
