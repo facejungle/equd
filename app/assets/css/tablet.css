@@ -1,28 +1,16 @@
-.wrapper-grid>.posts-thumbs {
-	flex: 1 1 40%;
+section.post-preview {
+	flex: 0 1 48%;
 }
-
-header.entry-header {
+.site-footer__line:nth-of-type(2) {
 	flex-wrap: wrap;
-	justify-content: center;
 }
-
-header.entry-header.post-header>.entry-header__block>picture {
-	max-width: var(--totalcontainerwidth);
-}
-
-@media only screen and (max-width: 770px) {
-
+@media only screen and (max-width: 970px) {
 	aside.sidebar {
 		display: none;
 	}
-
-	.wrapper-grid>.posts-thumbs {
-		flex: 1 1 100%;
-	}
-
+}
+@media only screen and (max-width: 700px) {
 	footer.site-footer {
 		display: none;
 	}
-
 }
