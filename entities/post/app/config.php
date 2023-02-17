@@ -11,8 +11,6 @@
 
 namespace EQUD\entities\post\app;
 
-use equd_content\equd_content;
-
 defined('ABSPATH') || exit;
 
 /**
@@ -29,16 +27,14 @@ defined('ABSPATH') || exit;
 
 class config
 {
-	public static $post_content;
 	public function __construct()
 	{
-		add_action('init', array($this, 'my_remove_post_support'), 10);
-		add_filter('wp_insert_post_data', array($this, 'mandatory_excerpt'));
-		add_action('admin_notices', array($this, 'excerpt_admin_notice'));
-		self::$post_content = new equd_content('post', 'crb_blocks', array('title', 'text', 'code'));
-		self::$post_content->add_model_for_posts();
+		$this->attach_tax();
+      add_action('init', array($this, 'my_remove_post_support'), 10);
+		
+		new \require_post_meta('post', 'post_excerpt');
 	}
-	public function attach_tax()
+	private function attach_tax()
 	{
 		add_action(
 			'init',
@@ -55,7 +51,6 @@ class config
 		remove_post_type_support('post', 'trackbacks');
 		remove_post_type_support('post', 'custom-fields');
 		remove_post_type_support('post', 'post-formats');
-		add_post_type_support('post', 'page-attributes');
 		add_post_type_support('post', 'excerpt');
 		add_post_type_support('page', 'excerpt');
 	}

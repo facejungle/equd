@@ -14,6 +14,9 @@
 namespace EQUD\entities\post\app;
 
 defined( 'ABSPATH' ) || exit;
+
+use equd_content\equd_content;
+
 /**
  * Loader for post type - post.
  *
@@ -24,8 +27,11 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class loader {
+   public static $post_content;
    public function __construct(){
       $config = new config();
-      $config->attach_tax();
+      
+      self::$post_content = new equd_content('post', 'crb_blocks', array('title', 'text', 'code'));
+		self::$post_content->add_model_for_posts();
    }
 }
