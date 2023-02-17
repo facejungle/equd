@@ -17,16 +17,36 @@
 	?>
 	<div class="archive-grid flex-row">
 		<?php
-		while (have_posts()) {
-			the_post();
+		$post_types_custom = get_post_types(
+			array(
+				'public' => true,
+				'_builtin' => false
+			),
+			'names',
+			'and'
+		);
+		$post_types_builtin = get_post_types(
+			array(
+				'public' => true,
+				'_builtin' => true
+			),
+			'names',
+			'and'
+		);
+		$object = get_queried_object();
+		$query = new WP_Query( 
+			array(
+			'category_name'  => $object->slug,
+			'post_type' => array_merge($post_types_custom, $post_types_builtin)
+		) );
+		while ($query->have_posts()) {
+			$query->the_post();
 			?>
 			<section class="post-preview flex-column <?php echo tag_escape(get_post_type()); ?>">
 				<a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
 				<?php
 				echo get_the_post_thumbnail($post, 'size_small');
 				the_title('<div class="post-preview__title"><h2 class="entry-title">', '</h2></div>');
-				the_excerpt();
-				
 				?>
 				</a>
 			</section>
