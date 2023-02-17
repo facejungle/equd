@@ -13,7 +13,7 @@
 
 namespace equd_content\fields;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Class for including and disabling styles and scripts.
@@ -26,7 +26,7 @@ defined('ABSPATH') || exit;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-abstract class fields_abstract
-{
-   abstract static function get_field(string $type, object $block = null);
+abstract class fields_abstract {
+
+	abstract static function get_field( string $type, object $block = null);
 }

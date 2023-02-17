@@ -27,17 +27,17 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class init {
-   public function __construct(){
-      add_action( 'wp_head', array($this, 'print_js'), 7 );
-   }
-   public function print_js() {
-      ?>
-      <script>
-      <?php
-         require_once __DIR__ . '/loadCSS.js';
-         require_once __DIR__ . '/onloadCSS.js';
-      ?>
-      </script>
-      <?php
-   }
+	public function __construct() {
+		add_action( 'wp_head', array( $this, 'print_js' ), 7 );
+	}
+	public function print_js() {
+		?>
+	  <script>
+		<?php
+		 require_once __DIR__ . '/loadCSS.js';
+		 require_once __DIR__ . '/onloadCSS.js';
+		?>
+	  </script>
+		<?php
+	}
 }

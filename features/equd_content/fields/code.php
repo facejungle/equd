@@ -15,7 +15,7 @@ namespace equd_content\fields;
 
 use equd_content\fields\fields_abstract;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 use Carbon_Fields\Field;
 
@@ -30,21 +30,20 @@ use Carbon_Fields\Field;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/facejungle/equd
  */
-class code extends fields_abstract
-{
-   public static function get_field(string $type, object $block = null)
-   {
-      if ($type === 'block') {
-         $field = $block->add_fields(
-            'block__code',
-            __('Code', 'equd'),
-            array(
-               Field::make('textarea', 'code__field', __('Code'))
-            )
-         );
-      } elseif ($type === 'field') {
-         $field = Field::make('textarea', 'code__field', __('Code'));
-      }
-      return $field;
-   }
+class code extends fields_abstract {
+
+	public static function get_field( string $type, object $block = null ) {
+		if ( $type === 'block' ) {
+			$field = $block->add_fields(
+				'block__code',
+				__( 'Code', 'equd' ),
+				array(
+					Field::make( 'textarea', 'code__field', __( 'Code' ) ),
+				)
+			);
+		} elseif ( $type === 'field' ) {
+			$field = Field::make( 'textarea', 'code__field', __( 'Code' ) );
+		}
+		return $field;
+	}
 }

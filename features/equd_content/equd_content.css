@@ -1,8 +1,8 @@
 .content-container{
-   
+ 
 }
 .content-container__title{
-   
+
 }
 .content-container__blocks{
    padding: 10px;
@@ -13,8 +13,19 @@
 }
 .content__block>pre{
    max-height: 100%;
+   
 }
 .content__block>pre>code{
    max-height: 50vh;
    border-radius: 10px;
+   max-width: 60vw;
+   font-size: 15px;
+   font-family: monospace;
+   line-height: 1.4em;
+   overflow-x: scroll;
+}
+@media only screen and (max-width: 970px) {
+   .content__block>pre>code{
+      max-width: 85vw;
+   }
 }
