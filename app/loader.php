@@ -39,5 +39,7 @@ class loader {
 		new \async_style_script();
 
 		new \EQUD\entities\post\app\loader();
+		new \EQUD\entities\lesson\app\loader();
+
 	}
 }
