@@ -17,7 +17,12 @@
 	<div class="post-content flex-column">
 		<?php
 		the_content();
-		\EQUD\entities\post\app\config::$post_content->view_model();
+		if(get_post_type() === 'post'){
+			\EQUD\entities\post\app\loader::$post_content->view_model();
+		}
+		if(get_post_type() === 'lesson'){
+			\EQUD\entities\lesson\app\loader::$post_content->view_model();
+		}
 		?>
 	</div>
 	<?php
