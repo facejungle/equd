@@ -42,10 +42,8 @@ class style_script {
 	 */
 	public function reg_styles() {
 		\async_style_script::wp_enqueue_style_special( 'loader', EQUD_URL_CORE_CSS . 'loader.css', '', _S_VERSION, 'all', 'asyncPreload' );
-		// \EQUD\features\async_style_script::wp_enqueue_style_special( 'general', EQUD_URL_CORE_CSS . 'general.css', '', _S_VERSION, 'all', 'async' );
-		// \EQUD\features\async_style_script::wp_enqueue_style_special( 'mobile', EQUD_URL_CORE_CSS . 'mobile.css', '', _S_VERSION, 'screen and (max-width: 480px)', 'asyncPreload' );
-		// \EQUD\features\async_style_script::wp_enqueue_style_special( 'tablet', EQUD_URL_CORE_CSS . 'tablet.css', '', _S_VERSION, 'screen and (min-width: 480px) and (max-width: 1366px)', 'asyncPreload' );
-		// \EQUD\features\async_style_script::wp_enqueue_style_special( 'highlight', EQUD_URL_CORE_CSS . 'highlight.css', '', _S_VERSION, '', 'async' );
+		\async_style_script::wp_enqueue_style_special( 'mobile', EQUD_URL_CORE_CSS . 'mobile.css', '', _S_VERSION, 'screen and (max-width: 480px)', 'asyncPreload' );
+		\async_style_script::wp_enqueue_style_special( 'tablet', EQUD_URL_CORE_CSS . 'tablet.css', '', _S_VERSION, 'screen and (min-width: 481px) and (max-width: 1366px)', 'asyncPreload' );
 	}
 
 	/**
