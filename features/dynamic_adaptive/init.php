@@ -27,9 +27,9 @@ defined( 'ABSPATH' ) || exit;
  * @link     https://github.com/facejungle/equd
  */
 class init {
-   public function __construct(){
-      add_action( 'wp_enqueue_scripts', array( $this, 'reg_js' ) );
-   }
+	public function __construct() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'reg_js' ) );
+	}
 	public function reg_js() {
 		wp_enqueue_script( 'dynamic_adaptive', __DIR__ . 'dynamicAdapt.js', array(), '', false );
 	}

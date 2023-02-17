@@ -23,11 +23,11 @@ defined( 'ABSPATH' ) || exit;
 class dynamic_style {
 
 	public function __construct() {
-		add_action('wp_head', array($this, 'reset_style'));
-		add_action('wp_head', array($this, 'root_style'));
-		add_action('wp_head', array($this, 'calculate_style'));
-		add_action('wp_head', array($this, 'fonts_style'));
-		add_action('wp_head', array($this, 'print_css'));
+		add_action( 'wp_head', array( $this, 'reset_style' ) );
+		add_action( 'wp_head', array( $this, 'root_style' ) );
+		add_action( 'wp_head', array( $this, 'calculate_style' ) );
+		add_action( 'wp_head', array( $this, 'fonts_style' ) );
+		add_action( 'wp_head', array( $this, 'print_css' ) );
 	}
 
 	function print_css() {
