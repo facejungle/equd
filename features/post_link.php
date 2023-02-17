@@ -1,5 +1,4 @@
 <?php
-
 /**
  * File to enable or disable styles and scripts.
  *
@@ -13,6 +12,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
 /**
  * Class for including and disabling styles and scripts.
  *
@@ -26,30 +26,40 @@ defined( 'ABSPATH' ) || exit;
  */
 class post_link {
 
-	private $type_name;
-	private $tax_name;
-	private $replace_tag;
+	private static $type_name;
+	private static $tax_name;
+	private static $replace_tag;
 
 	public function __construct( $post_type, $tax, $tag ) {
 		$this->type_name   = $post_type;
 		$this->tax_name    = $tax;
 		$this->replace_tag = $tag;
-		add_filter( 'post_type_link', array( $this, 'change_link' ), 1, 3 );
+		self::edit_permalink();
 		add_action( 'init', array( $this, 'generated_rewrite_rules' ) );
 	}
-	public function change_link( $post_link, $id = 0 ) {
-		$post = get_post( $id );
-		if ( $post->post_type == $this->type_name ) {
-			if ( is_object( $post ) ) {
-				$terms = wp_get_object_terms( $post->ID, array( $this->tax_name ) );
-				if ( $terms ) {
-					return str_replace( $this->replace_tag, $terms[0]->slug, $post_link );
-				}
+	private static function edit_permalink() {
+		$permalinks = static function ( $permalink, $post ) {
+			// выходим если это не наш тип записи: без холдера %products%.
+			if ( strpos( $permalink, '%equd_replace_tag%' ) === false ) {
+				return $permalink;
 			}
-		}
-		return $post_link;
-	}
 
+			// Получаем элементы таксы.
+			$terms = get_the_terms( $post, 'category' );
+			// если есть элемент заменим холдер.
+			if ( ! is_wp_error( $terms ) && ! empty( $terms ) && is_object( $terms[0] ) ) {
+				$cat_id   = $terms[0]->term_id;
+				$cat_path = get_category_parents( $cat_id, false, '/', true );
+			}
+			// элемента нет, а должен быть...
+			else {
+				$cat_path = 'no-category/';
+			}
+
+			return str_replace( '%equd_replace_tag%/', $cat_path, $permalink );
+		};
+		add_filter( 'post_type_link', $permalinks, 1, 2 );
+	}
 	public function generated_rewrite_rules() {
 		add_rewrite_rule(
 			'^' . $this->type_name . '/(.*)/(.*)/?$',
